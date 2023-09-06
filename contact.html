@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de contacto</title>
+
+<!-- Estilo CSS     -->
+    <link rel="stylesheet" href="estilo.css">
+<!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:ital@1&display=swap" rel="stylesheet">
+
+<!-- font awesome -->
+    <script src="https://kit.fontawesome.com/4661576001.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    <div class="conteiner_contact">
+        <h1 class="logo_contacto">Contactanos</h1>
+        <div class="contact-wrapper">
+            <div class="contac-form">
+                <h3>Dejanos tus datos</h3>
+                <form action="">
+                    <p>
+                        <label for="Nombres">Nombre</label>
+                        <input type="text" name="Nombre" id="Nombre">
+                    </p>
+                    <p>
+                        <label for="Email">Email</label>
+                        <input type="email" name="Email" id="Email" >
+                    </p>
+                    <p>
+                        <label for="Telefono">Telefono</label>
+                        <input type="tel" name="Telefono" id="Telefono" pattern=" [0-9] {10}">
+                    </p>
+                    <p>
+                        <label for="Asunto">Asunto</label>
+                        <input type="text" name="Asunto" id="Asunto">
+                    </p>
+                    <p class="block">
+                        <label for="Mensaje">Mensaje</label>
+                        <textarea name="Mensaje" id="Mensaje" rows="3"></textarea>    
+                    </p>
+                    <p class="block ">
+                        <button class="button" type="submit">
+                            <div class="Send">
+                                <i class="fa-solid fa-paper-plane icon_send "></i>
+                            </div> 
+                            <span class="text"> Enviar </span>
+                            <div class="Check">
+                                <i class="fa-solid fa-check icon"></i>
+                            </div>
+                        </button>
+                    </p>
+
+                </form>
+                
+            </div>
+            <div class="contact-info">
+              <h4>Mas Info</h4>
+              <ul>
+                <li> <i class="fa-solid fa-location-dot icon_location"></i> Direccion de la empresa</li>
+                <li> <i class="fa-brands fa-whatsapp icon_whatsapp"></i> 1111-111111</li>
+                <li> <i class="fa-regular fa-envelope icon_envelope"></i> correodelaempresa@gmail.com</li>
+              </ul>
+              <div class="red-info">
+                <h3>Seguinos</h3>
+                <div class="redes">
+                    <a href="#"class="icon_red icon_instagram"><i class="fa-brands fa-instagram"></i> </a> 
+                    <a href="#"class="icon_red icon_facebook"><i class="fa-brands fa-facebook"></i>  </a> 
+                    <a href="#"class="icon_red icon_X"> <i class="fa-brands fa-x-twitter"></i> </a> 
+                </div>
+            </div>
+              
+            </div>
+        </div>
+    </div>
+
+       
+    </section>
+ 
+</body>
+</html>
