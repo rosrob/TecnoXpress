@@ -1,4 +1,11 @@
 @import "variables.css";
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Slab', serif;
+}
+
 .container {
   width: 100%;
   max-width: none;
@@ -14,3 +21,257 @@
   width: 100%;
   height: 500px;
 }
+
+/* SECCION DE CONTACTO */
+
+.contact {
+    background: var(--primary-color);
+    color: var(--fourty-color);
+    padding: 0 1.5em;   
+
+}
+
+.conteiner_contact {
+    
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5em;
+}
+
+.logo_contact {
+    font-weight: bold;
+    text-align: center;
+    font-size: 5em;
+    text-transform: uppercase;
+    }
+
+.contact-wrapper > *{
+    padding: 1em;
+}
+
+.contact-wrapper {
+    box-shadow:  0 0 20px 0 rgba(255, 255, 255,  .3);
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+}
+
+/* FORMULARIO DE CONTACTO */
+
+.contac-form {
+    background: var(--secondary-color);
+}
+
+.contac-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contac-form form .block {
+    grid-column: 1/3;
+}
+
+.contac-form form p {
+    margin: 0;
+    padding: 1em;
+
+}
+
+.contac-form form button,
+.contac-form form input,
+.contac-form form textarea {
+    width: 100%;
+    padding: .7em;
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--fourty-color);
+    border-bottom: 1px solid var(--primary-color);
+}
+
+/* Boton de enviar */
+
+.contac-form .button{
+    display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 60px;
+	background: var(--primary-color);
+	color: var(--fourty-color);
+	font-size: 20px;
+	border: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: .3s ease all;
+	border-radius: .5em;
+	position: relative;
+}
+
+.contac-form .button .text{
+    transition: .4s ease-in-out all;
+    position: absolute;
+    left: 46%;
+}
+
+.contac-form .button .send{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    left: -40px;
+    transition: .3s ease-in-out all;
+    opacity: 0;
+}
+
+.contac-form .button .icon_send{
+    color: var(--fourty-color);
+    width: 20px;
+    height: 20px;
+}
+
+.contac-form .button .check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    transition: .3s ease-in-out all;
+    opacity: 0;
+}
+
+.contac-form .button:hover{
+    background-color: #25D366;
+}
+
+.contac-form .button:focus .check{
+    opacity: 1;
+}
+
+.contac-form .button:focus{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #25D366;
+    position: relative;
+}
+
+.contac-form .button:hover .send{
+    left: calc(100% - 40px);
+    opacity: 1;
+}
+
+.contac-form .button:focus .send{
+    opacity: 0;
+}
+
+.contac-form .button:hover .text {
+    left: 30px;
+}
+
+.contac-form .button:focus .text {
+    opacity: 0;
+}
+
+/* INFORMACION DE CONTACTO */
+
+/* Contactos */
+
+.contact-info {
+    background: var(--thirty-color);
+
+} 
+
+.contact-info h4 , ul,
+.red-info h3 {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+.contact-info h4{
+    font-size: 1.7em;
+}
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info ul li {
+    padding: 0.25em;
+}
+
+.contact-info .icon_location{
+    color: red;
+    font-size: 1.15em;
+}
+
+.contact-info .icon_whatsapp{
+    color: #25D366;
+    font-size: 1.15em;
+}
+
+.contact-info .icon_envelope{
+    color: #285aeb;
+    font-size: 1.15em;
+}
+
+/* Redes Sociales */
+
+.red-info h3{
+    font-size: 1.7em;
+}
+
+.redes {
+    display: flex;
+    column-gap: 25px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.redes .icon_red {
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 30px;
+    color: var(--fourty-color);
+    border-radius: 50%;
+    outline: 2px solid var(--fourty-color);
+    transition-property: outline-color, background-color;
+    transition-duration: .25s;
+}
+
+.redes .icon_red:hover{
+    outline-offset: 4px;
+}
+
+.redes .icon_red:hover{
+    animation: shake .25s;
+}
+
+.redes .icon_instagram:hover{
+    background-image: radial-gradient(circle at 30% 107%,
+    #fdf497 0%, #fdf497 5%, 
+    #fd5949 45%, #d6249f 60%,
+    #285aeb 90%);
+    outline-color: #a02d76;
+}
+
+.redes .icon_facebook:hover{
+    background-color: #3b5998;
+    outline-color: #3b5998;
+}
+
+.redes .icon_X:hover{
+    background-color: #1f2124;
+    outline-color: #1f2124;
+}
+
+/* FIN SECCION DE CONTACTO */
