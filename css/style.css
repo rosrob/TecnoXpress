@@ -321,3 +321,119 @@
 }
 
 /* FIN SECCION DE CONTACTO */
+
+/*INICIO PIE DE PAGINA*/
+.PIEDEPAGINA{
+    width: 100%;
+    background-color:#da5000 ;
+}
+img{
+    width: 250px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+span{
+    font-size: 12px;
+}
+.fb{
+    background-color: rgb(0, 29, 190);
+    padding: 8px;
+    border-radius: 50px;
+    color: white;
+}
+.tw{
+    background-color: rgb(48, 47, 48);
+    padding: 8px;
+    border-radius: 50px;
+    color: white;
+}
+.insta{
+    background-color: rgb(255, 0, 179);
+    padding: 8px;
+    border-radius: 50px;
+    color: white;
+}
+.tk{
+    background-color: rgb(0, 0, 0);
+    padding: 8px;
+    border-radius: 50px;
+    color: white;
+}
+.vi{
+    background-color: rgb(255, 255, 255);
+    padding: 8px;
+    border-radius: 50px;
+    color: rgb(9, 9, 244);
+   
+}
+.ms{
+    background-color: rgb(255, 255, 255);
+    padding: 8px;
+    border-radius: 18px;
+    color: rgb(255, 0, 0);
+}
+.amx{
+    background-color: rgb(255, 255, 255);
+    padding: 8px;
+    border-radius: 18px;
+    color: rgb(0, 181, 253);
+}
+.pay{
+    background-color: rgb(255, 255, 255);
+    padding: 8px;
+    border-radius: 18px;
+    color: rgb(2, 61, 163);
+}
+.btc{
+    background-color: rgb(255, 255, 255);
+    padding: 8px;
+    border-radius: 18px;
+    color: rgba(255, 94, 0, 0.769);
+}
+.wsp{
+    background-color: rgb(45, 184, 45);
+    padding: 8px;
+    border-radius: 18px;
+    color: rgba(255, 255, 255, 0.769);
+}
+.mail{
+    background-color: rgb(255, 255, 255);
+    padding: 8px;
+    border-radius: 18px;
+    color: rgba(7, 0, 201, 0.769);
+}
+.PIEDEPAGINA .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+}
+.PIEDEPAGINA .grupo-1 .box h2{
+    color: black;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.PIEDEPAGINA .grupo-2{
+    background-color:  #494949;
+    padding: 15px 10px;
+    text-align: center;
+    color: black;
+}
+.PIEDEPAGINA .grupo-2 small{
+    font-size: 15px;
+}
+@media screen and (max-width:800px){
+    .PIEDEPAGINA .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+    } 
+}
+/*FIN PIE DE PAGINA*/
