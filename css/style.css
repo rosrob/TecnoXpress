@@ -6,13 +6,30 @@
   font-family: 'Roboto Slab', serif;
 }
 
-.container {
-  width: 100%;
-  max-width: none;
+/* SECCION DE LOGO Y BARRA DE NAVEGACION */
+
+#logo{
+    height:60px;
+    width:60px;
 }
 
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 0;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 3%;
+}
+
+/* SECCION DE CARRUSEL DE IMAGENES */
+.container {
+    margin:0px;
+    padding:0px;
+    width: 100%;
+    max-width: none;
+  }
 .carousel-inner {
-  width: 100%;
+    width: 100%;
 }
 
 .carousel-item img {
@@ -20,6 +37,30 @@
   object-position: center center;
   width: 100%;
   height: 500px;
+}
+/* SECCION DE PRODUCTOS */
+
+
+/* SECCION DE NOSOTROS */
+.quienes-somos{
+    padding:4% 3% 4% 5% ;
+    height: auto;
+    background-color:var(--secondary-color);
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    color:var(--fourty-color);
+}
+.quienes-somos h2{
+    font-family: 'Roboto', sans-serif;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 3rem;
+}
+.quienes-somos p{
+    font-weight: normal;
+    font-size: 1.2rem;
+    text-align: justify center;
 }
 
 /* SECCION DE CONTACTO */
