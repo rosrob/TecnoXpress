@@ -463,3 +463,52 @@ span{
     } 
 }
 /*FIN PIE DE PAGINA*/
+
+/*INICIO FORMULARIO DE INGRESO*/
+
+  #titulo {
+    font-family: 'Roboto', sans-serif;
+    color: var(--primary-color);
+    font-weight: bold;
+    background-color: #494949;
+    text-align :center;
+    font-size: 60px;
+    margin: 0%;
+    
+    }
+    
+  #formularioIngreso {
+    
+    background-color: #494949;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    
+    
+
+}
+
+ #text {
+    background-color:#494949;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+ }
+
+ #Ingresar {
+    
+    background-color: #da5000;
+    color: black;
+    bottom: auto;
+    text-align: center;
+ }
+
+ #contraseña {
+ 
+    color: black;
+    font-family: 'Roboto', sans-serif;
+
+  
+ }
+
+
