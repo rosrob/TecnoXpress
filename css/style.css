@@ -512,14 +512,7 @@ span{
 .PIEDEPAGINA .grupo-2 small{
     font-size: 15px;
 }
-@media screen and (max-width:800px){
-    .PIEDEPAGINA .grupo-1{
-        width: 90%;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 30px;
-        padding: 35px 0px;
-    } 
-}
+
 /*FIN PIE DE PAGINA*/
 
 /*INICIO FORMULARIO DE INGRESO*/
@@ -570,3 +563,16 @@ span{
  }
 
 
+
+ @media screen and (max-width:800px){
+  .top-txt{
+    display:none;
+  }
+  .PIEDEPAGINA .grupo-1{
+      width: 90%;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 30px;
+      padding: 35px 0px;
+  } 
+
+}
