@@ -354,82 +354,139 @@
     background-color:#da5000 ;
 }
 img{
-    width: 250px;
+    width: 200px;
 }
 .logo{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 span{
-    font-size: 12px;
+    font-size: 13px;
 }
 .fb{
-    background-color: rgb(0, 29, 190);
-    padding: 8px;
-    border-radius: 50px;
-    color: white;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    color: blue;
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
 }
 .tw{
-    background-color: rgb(48, 47, 48);
-    padding: 8px;
-    border-radius: 50px;
-    color: white;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    color: black;
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
+    
 }
 .insta{
-    background-color: rgb(255, 0, 179);
-    padding: 8px;
-    border-radius: 50px;
-    color: white;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    color: pink;
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
 }
 .tk{
-    background-color: rgb(0, 0, 0);
-    padding: 8px;
-    border-radius: 50px;
-    color: white;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    color: black;
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
 }
 .vi{
-    background-color: rgb(255, 255, 255);
-    padding: 8px;
-    border-radius: 50px;
-    color: rgb(9, 9, 244);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    color: blue;
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
    
 }
 .ms{
-    background-color: rgb(255, 255, 255);
-    padding: 8px;
-    border-radius: 18px;
-    color: rgb(255, 0, 0);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    color: red;
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
 }
 .amx{
-    background-color: rgb(255, 255, 255);
-    padding: 8px;
-    border-radius: 18px;
-    color: rgb(0, 181, 253);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    color: cornflowerblue;
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
 }
 .pay{
-    background-color: rgb(255, 255, 255);
-    padding: 8px;
-    border-radius: 18px;
-    color: rgb(2, 61, 163);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    color: skyblue;
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
 }
 .btc{
-    background-color: rgb(255, 255, 255);
-    padding: 8px;
-    border-radius: 18px;
-    color: rgba(255, 94, 0, 0.769);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    color: orange;
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
+
 }
 .wsp{
-    background-color: rgb(45, 184, 45);
-    padding: 8px;
-    border-radius: 18px;
-    color: rgba(255, 255, 255, 0.769);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    color: green;
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
 }
 .mail{
-    background-color: rgb(255, 255, 255);
-    padding: 8px;
-    border-radius: 18px;
-    color: rgba(7, 0, 201, 0.769);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
 }
 .PIEDEPAGINA .grupo-1{
     width: 100%;
@@ -447,9 +504,9 @@ span{
 }
 .PIEDEPAGINA .grupo-2{
     background-color:  #494949;
-    padding: 15px 10px;
-    text-align: center;
+    padding: 10px 15px;
     color: black;
+    text-align:center;
 }
 .PIEDEPAGINA .grupo-2 small{
     font-size: 15px;
