@@ -55,22 +55,22 @@
           <h4>Formulario de Registro</h4> 
           <form action="" method="">
              <label>Nombre</label>
-             <input type="text" name="nombre" id="Nombre"><br>
+             <input type="text" name="nombre" id="nombre" minlength="2" maxlength="30" required><br>
              <label>Apellido</label>
-             <input type="text" name="apellido" id="apellido"><br>
+             <input type="text" name="apellido" id="apellido" minlength="2" maxlength="30" required><br>
              <label>DNI</label>
-             <input type="number" name="DNI" id="DNI"><br>
+             <input type="text" name="DNI" id="DNI" minlength="8" maxlength="8" required><br>
              <label>Fecha de Nacimiento</label>
-             <input type="number" name="fecha de nacimiento" id="Fecha de nacimiento"><br>
+             <input type="number" name="fecha de nacimiento" id="Fecha de nacimiento" required><br>
              <label>Celular</label> 
-             <input type="number" name="celular" id="Celular"><br>
+             <input type="number" name="celular" id="Celular" required><br>
              <label>Email</label>
-             <input type="email" name="email" id="Email"><br>
+             <input type="email" name="email" id="Email" required><br>
              <label>Contraseña</label>
-             <input type="password" name="contraseña" id="Contraseña"><br>
+             <input type="password" name="contraseña" id="Contraseña" required><br>
              <label>Confirmar contraseña</label>
-             <input type="password" name="confirmar contraseña" id="Confirmar contraseña"><br>
-             <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+             <input type="password" name="confirmar contraseña" id="Confirmar contraseña" required><br>
+             <p>Estoy de acuerdo con los <a href="#">Terminos y Condiciones</a></p>
              <input type="submit" value="Registrar">
              <p><a href="#">¿Ya tengo Cuenta?</a></p>
          </form>  
