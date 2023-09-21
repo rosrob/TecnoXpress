@@ -365,17 +365,18 @@ img{
 span{
     font-size: 13px;
 }
-.fb{
+.fb {
     background-color: transparent;
     padding: 10px;
     border-radius: 50%;
     color: blue;
-    width: 60px;
+    width: 60%;
     height: 60px;
     margin: 0px auto;
     font-size: 20px;
     text-align: center;
 }
+
 .tw{
     background-color: transparent;
     padding: 10px;
@@ -386,7 +387,6 @@ span{
     margin: 0px auto;
     font-size: 20px;
     text-align: center;
-    
 }
 .insta{
     background-color: transparent;
@@ -420,7 +420,6 @@ span{
     margin: 0px auto;
     font-size: 20px;
     text-align: center;
-   
 }
 .ms{
     background-color: transparent;
@@ -465,7 +464,6 @@ span{
     margin: 0px auto;
     font-size: 20px;
     text-align: center;
-
 }
 .wsp{
     background-color: transparent;
@@ -496,7 +494,7 @@ span{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 50px;
-    padding: 45px 0px;
+    padding: 45px 0px;  
 }
 .PIEDEPAGINA .grupo-1 .box h2{
     color: black;
@@ -517,7 +515,7 @@ span{
 
 /*INICIO FORMULARIO DE INGRESO*/
 
-#titulo {
+.titulo{
     font-family: 'Roboto', sans-serif;
     color: var(--primary-color);
     font-weight: bold;
@@ -528,13 +526,8 @@ span{
     padding-top: 20px;
     padding-bottom: 20px;
     transform:translate(list-style);
-    
-    }
-
- 
-  
-    
-  #formularioIngreso {
+}
+.formularioIngreso{
     
     background-color: #494949;
     font-family: 'Roboto', sans-serif;
@@ -544,18 +537,15 @@ span{
     padding: 20px 20px;
     text-align: center;
 }
-
- #text {
+.text {
     background-color:white;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     color: black;
     text-shadow: 1px 1px 1px black;
     text-align: center;
-
- }
-
- #Ingresar {
+}
+.Ingresar{
     
     font-family: 'Roboto', sans-serif;
     padding: 5px 50px;
@@ -564,26 +554,17 @@ span{
     background-color: #da5000;
     border: 0px;
     margin: 20px;
-
-
- }
-
- input#Ingresar:hover{
+}
+.input#Ingresar:hover{
 
     background-color: white;
     color: #da5000;
-
-
- }
-
- #contraseña {
- 
+}
+.contraseña{
     color: black;
     font-family: 'Roboto', sans-serif;
     padding: 10px 10px;
-
-  
- }
+}
 
 /*FIN FORMULARIO DE INGRESO*/
 
@@ -597,7 +578,7 @@ span{
         width: 90%;
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 30px;
-        padding: 35px 0px;
-    } 
+        padding: 35px 0px;
+    }
   
-  }
+}
