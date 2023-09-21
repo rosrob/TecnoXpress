@@ -582,3 +582,67 @@ span{
     }
   
 }
+/*INICIO REGISTRATION FORM*/
+
+.tituloform{
+    font-family: 'Roboto', sans-serif;
+    color: var(--primary-color);
+    font-weight: bold;
+    background-color: #494949;
+    text-align :center;
+    font-size: 60px;
+    margin: 0%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transform:translate(list-style);
+}
+.fondo{
+    background-color: #494949;
+}
+.contenedor-grid{
+    display: grid;
+    text-align: center;
+}
+.celda {
+    background-color:white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: black;
+    align-items: center;     
+}
+.dato {
+    background-color:white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    background-color: #494949;
+    text-align: center;
+    display: grid;   
+}
+.Registrar{
+    
+    font-family: 'Roboto', sans-serif;
+    padding: 5px 50px;
+    color: white;
+    font-size: 1em;
+    background-color: #da5000;
+    border: 0px;
+    margin: 20px;
+    padding-top: 10px;
+    text-align: center;
+    
+}
+.input.Registrar:hover{
+
+    background-color: white;
+    color: #da5000;
+}
+.link{
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px 10px;
+    
+}
+
+/*FIN REGISTRATION FORM*/
