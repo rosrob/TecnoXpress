@@ -7,20 +7,7 @@
   font-family: 'Roboto Slab', serif;
 }
 
-/* SECCION DE LOGO Y BARRA DE NAVEGACION */
 
-#logo{
-    height:60px;
-    width:60px;
-}
-
-.navbar-collapse {
-    flex-basis: 100%;
-    flex-grow: 0;
-    align-items: center;
-    padding-left: 5%;
-    padding-right: 3%;
-}
 
 /* SECCION DE CARRUSEL DE IMAGENES */
 .container {
@@ -568,20 +555,7 @@ span{
 
 /*FIN FORMULARIO DE INGRESO*/
 
-/*MEDIA QUERY - RESPONSIVE*/
 
-@media screen and (max-width:800px){
-    .top-txt{
-      display:none;
-    }
-    .PIEDEPAGINA .grupo-1{
-        width: 90%;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 30px;
-        padding: 35px 0px;
-    }
-  
-}
 /*INICIO REGISTRATION FORM*/
 
 .tituloform{
@@ -646,3 +620,27 @@ span{
 }
 
 /*FIN REGISTRATION FORM*/
+
+
+
+
+
+
+/*MEDIA QUERY - RESPONSIVE* *** DEJAR SIEMPRE AL ULTIMO*/
+
+@media screen and (max-width:800px){
+    #top-menu {
+       padding-right:35px;
+      } 
+    .top-txt{
+      display:none;
+    }
+
+    .PIEDEPAGINA .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+    }
+  
+}
