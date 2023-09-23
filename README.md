@@ -10,6 +10,7 @@
 * Erica Vanina Robledo 
 * Santiago Tomás Ibañez
 * Sergio Gabriel Valdiviezo
+* Carolina Valles
 * Romina Soledad Robledo
 
 ### En rama MAIN:
