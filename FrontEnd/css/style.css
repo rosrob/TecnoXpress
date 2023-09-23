@@ -138,7 +138,7 @@
 	position: relative;
 }
 
-.contac-form .button .text{
+.contac-form .button .text_send{
     transition: .4s ease-in-out all;
     position: absolute;
     left: 46%;
@@ -198,11 +198,11 @@
     opacity: 0;
 }
 
-.contac-form .button:hover .text {
+.contac-form .button:hover .text_send {
     left: 30px;
 }
 
-.contac-form .button:focus .text {
+.contac-form .button:focus .text_send {
     opacity: 0;
 }
 
