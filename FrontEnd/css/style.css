@@ -362,7 +362,16 @@ span{
     padding: 15px;
     font-size: 20px;
 }
-
+a span.mail, .mail-brands {
+    text-align: center;
+    background: #312a2aad;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0px auto;
+   padding:12px 15px;
+    font-size: 20px;
+}
 .tw-brands,.tw{
     background-color: transparent;
     padding: 10px;
@@ -496,7 +505,14 @@ span{
 .PIEDEPAGINA .grupo-2 small{
     font-size: 15px;
 }
-
+.redes, .box  {
+    display: flex;
+    column-gap: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 /*FIN PIE DE PAGINA*/
 
 /*INICIO FORMULARIO DE INGRESO*/
@@ -551,6 +567,7 @@ span{
     font-family: 'Roboto', sans-serif;
     padding: 10px 10px;
 }
+
 
 /*FIN FORMULARIO DE INGRESO*/
 
