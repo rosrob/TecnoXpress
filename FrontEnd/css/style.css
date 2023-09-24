@@ -28,6 +28,39 @@
 }
 /* SECCION DE PRODUCTOS */
 
+.titleSectionProductos {
+    text-align: center;
+    padding: 30px;
+  }
+  
+  @media (max-width: 750px) {
+    .titleSectionProductos {
+      margin-left: 0;
+    }
+  }
+  
+  .productosNavCard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 15px;
+    justify-items: center;
+    padding: 10px;
+  }
+  
+  .card {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .card-body {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-content: flex-end;
+    align-items: flex-start;
+    flex: 0;
+  }
+  
 
 /* SECCION DE NOSOTROS */
 .quienes-somos{
