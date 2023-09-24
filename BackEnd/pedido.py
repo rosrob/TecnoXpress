@@ -26,7 +26,16 @@ class Pedido:
         self.id_carrito = id_carrito
     
     
-#cargar pedido()
-#modificar_pedido()
-#eliminar_pedido()
+    def cargar_pedido(self):
+        # implementacion del metodo
+        pass
+    
+    def modificar_pedido(self):
+        # implementacion del metodo
+        pass
+    
+    def eliminar_pedido(self):
+        # implementacion del metodo
+        pass
+    
     
