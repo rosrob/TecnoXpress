@@ -505,7 +505,7 @@ a span.mail, .mail-brands {
 .PIEDEPAGINA .grupo-2 small{
     font-size: 15px;
 }
-.redes, .box  {
+.redes {
     display: flex;
     column-gap: 10px;
     flex-direction: row;
