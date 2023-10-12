@@ -1,6 +1,10 @@
-:root{
-    --primary-color:#da5000;
-    --secondary-color:#494949;
-    --thirty-color:#000000;
-    --fourty-color:#ffffff;
+:root {
+  --primary-color: #ff6f29;
+  --secondary-color: #494949;
+  --thirty-color: #000000;
+  --fourty-color: #ffffff;
+  --fifty-color: #e8e2dd;
+  --sixty-color: #5f12ea;
+  --seventy-color: #b4baf0;
+  --eighty-color: #e15fbd;
 }
