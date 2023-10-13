@@ -61,7 +61,7 @@ const productos = [
         precio: 1000,
         stock: 15
     },
-    // Camisetas
+    // Monitores
     {
         id_productos: "06",
         nombre: "Monitores 01",
@@ -222,10 +222,12 @@ const productos = [
 ];
 
 const contenedorDeProductos = document.querySelector("#contenedor-de-productos");
+const botonesCategorias = document.querySelectorAll(".boton-categoria");
+const tituloPrincipal = document.querySelector("#titulo-principal");
 
-function cargarProductos(){
-    productos.forEach(producto => {
-
+function cargarProductos(productosElegidos){
+    contenedorDeProductos.innerHTML="";
+    productosElegidos.forEach(producto => {
         const div = document.createElement("div"); 
         div.classList.add("productos");
         div.innerHTML=`
@@ -244,10 +246,7 @@ function cargarProductos(){
         `;
         contenedorDeProductos.append(div);
     })
-
 }
-
-cargarProductos();
 //crea una variable div y la asigna a un elem html div
 
 // Alt + 96 comilla francesa para template string
@@ -259,3 +258,21 @@ cargarProductos();
     <p class="producto-precio">$ 2.000</p>
     <button class="producto-agregar">Agregar al Carrito<i class="bi bi-cart-plus"></i></button>
  </div> */
+
+botonesCategorias.forEach(boton => {
+    boton.addEventListener("click", (e) => {
+
+        botonesCategorias.forEach(boton => boton.classList.remove("active"));
+        e.currentTarget.classList.add("active");
+        
+        if (e.currentTarget.id != "todos") {
+            const productoCategoria = productos.find(producto => producto.categoria.id_categoria_productos === e.currentTarget.id);
+            tituloPrincipal.innerText = productoCategoria.categoria.nombre;
+            const productosBoton = productos.filter(producto => producto.categoria.id_categoria_productos === e.currentTarget.id);
+            cargarProductos(productosBoton);
+        } else {
+            tituloPrincipal.innerText = "Todos los productos";
+            cargarProductos(productos);
+        }
+    })
+ });
