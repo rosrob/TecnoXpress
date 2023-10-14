@@ -132,7 +132,7 @@ display:flex;
 .producto-botones button{
     margin:0px 5px
 }
-.producto-agregar {
+.producto-agregar, .producto-ver-info {
     border: 0;
     background-color: var(--primary-color);
     color: var(--fourty-color);
