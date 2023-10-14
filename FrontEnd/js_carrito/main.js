@@ -1,4 +1,5 @@
 
+
 const contenedorDeProductos = document.querySelector("#contenedor-de-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
@@ -18,7 +19,7 @@ function cargarProductos(productosElegidos){
             </div>
             <p class="producto-precio">$ ${producto.precio}</p>
             <div class="producto-botones">
-                <button class="producto-ver-info mi-boton-tt"  title="Ver más .." id="${producto.id_productos}"><i class="bi bi-eye"></i></i></button>
+                <button class="producto-agregar mi-boton-tt"  title="Ver más .." id="${producto.id_productos}"><i class="bi bi-eye"></i></i></button>
                 <button class="producto-agregar mi-boton-tt" title="Agregar al Carrito" id="${producto.id_productos}"><i class="bi bi-cart-plus"></i></button>
             </div>
          </div>
@@ -28,11 +29,18 @@ function cargarProductos(productosElegidos){
 
     actualizarBotonesAgregar();
 }
+cargarProductos(productos);
 //crea una variable div y la asigna a un elem html div
 
 // Alt + 96 comilla francesa para template string
 
-cargarProductos(productos);
+
+/* <img class="producto-imagen" src="./media/TecladoNoganet_1.webp" alt="Teclado Noganet1">
+<div class="producto-detalles">
+    <h3 class="producto-titulo">Teclado 01</h3>
+    <p class="producto-precio">$ 2.000</p>
+    <button class="producto-agregar">Agregar al Carrito<i class="bi bi-cart-plus"></i></button>
+ </div> */
 
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
