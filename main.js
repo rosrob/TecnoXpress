@@ -19,7 +19,7 @@ function cargarProductos(productosElegidos){
             </div>
             <p class="producto-precio">$ ${producto.precio}</p>
             <div class="producto-botones">
-                <button class="producto-agregar mi-boton-tt"  title="Ver más .." id="${producto.id_productos}"><i class="bi bi-eye"></i></i></button>
+                <button id="ver-mas-producto" class="producto-ver-mas mi-boton-tt"  title="Ver más .." id="${producto.id_productos}"><i class="bi bi-eye"></i></i></button>
                 <button class="producto-agregar mi-boton-tt" title="Agregar al Carrito" id="${producto.id_productos}"><i class="bi bi-cart-plus"></i></button>
             </div>
          </div>
@@ -79,7 +79,5 @@ botonesCategorias.forEach(boton => {
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);
     }
-
-    
 
  }
