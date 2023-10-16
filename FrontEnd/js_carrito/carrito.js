@@ -1,4 +1,5 @@
-const productosEnCarrito = JSON.parse(localStorage.getItem("productos-encarrito"));
+const productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito"));
+console.log(productosEnCarrito);
 
 const contenedorCarritoVacio = document.querySelector("#carrito-vacio");
 const contenedorCarritoProductos = document.querySelector("#carrito-productos");
@@ -17,10 +18,10 @@ if (productosEnCarrito){
          const div = document.createElement("div");
          div.classList.add("carrito-producto");
          div.innerHTML = `
-                    <img  src="${producto.imagen}" alt="${producto.titulo}">
+                    <img  class="carrito-producto-imagen" src="${producto.imagen}" alt="${productos.titulo}">
                     <div class="carrito-producto-titulo">
                         <small>Título</small>
-                        <h3>${producto.titulo}</h3>
+                        <h3>${producto.nombre}</h3>
                     </div>
                     <div class="carrito-producto-cantidad">
                         <small>Cantidad</small>
@@ -37,7 +38,7 @@ if (productosEnCarrito){
                     <button  class="carrito-producto-eliminar id="${producto.id}"><i class="bi bi-trash-fill"></i></button>
        
          `;
-         contenedorCarritoProductos.append();
+         contenedorCarritoProductos.append(div);
     })
    
 
