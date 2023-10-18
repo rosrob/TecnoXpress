@@ -12,7 +12,7 @@ class Usuario:
         self.__apellido = ""
         self.__dni = ""
         self.__fecha_de_nacimiento = ""
-        self.__domicilio = ""
+        self.__domicilio = "s/n"
         self.__localidad = ""
         self.__provincia = ""
         self.__codigo_postal = ""
@@ -151,9 +151,14 @@ class Usuario:
                     break
                 else:
                     print ("Este usuario ya existe, intente nuevamente")
-                
-            contraseña = input ("ingrese una contraseña: ")
-            self.contraseña = contraseña
+            while True:
+                contraseña = input ("Ingrese una contraseña: ")
+                repetir_contraseña = input ("Repita la contraseña: ")
+                if contraseña == repetir_contraseña:
+                    self.contraseña = contraseña
+                    break
+                else:
+                    print ("Las contraseñas deben coincidir")                
             nombre = input ("Ingrese su nombre: ")
             self.nombre = nombre
             apellido = input ("Ingrese su apellido: ")
@@ -163,14 +168,6 @@ class Usuario:
             fecha_de_nacimiento = input ("Ingrese su fecha de nacimiento en formato dd/mm/aaaa : ")
             fecha_de_nacimiento = datetime.datetime.strptime(fecha_de_nacimiento, '%d/%m/%Y').strftime('%Y-%m-%d')
             self.fecha_de_nacimiento = fecha_de_nacimiento 
-            direccion = input ("Ingrese su direccion: ")
-            self.domicilio = direccion
-            localidad = input ("Ingrese su localidad: ")
-            self.localidad = localidad
-            provincia = input ("ingrese su provincia: ")
-            self.provincia = provincia
-            codigo_postal= input ("Ingrese su codigo postal: ")
-            self.codigo_postal = codigo_postal
             nro_telefonico = int(input ("Ingrese su numero de telefono: "))
             self.nro_telefonico = nro_telefonico
             email = input ("Ingrese su email.com: ")
@@ -203,22 +200,17 @@ class Usuario:
             
             # Consulta SQL para insertar datos en la tabla "usuarios"
             consulta_usuarios = "INSERT INTO usuarios (username, contraseña, nombre, apellido, dni, fecha_de_nacimiento, direccion, fecha_registro, nro_telefonico, email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            valores_usuarios = (self.username, self.contraseña, self.nombre, self.apellido, self.dni, self.fecha_de_nacimiento, self.domicilio, self.fecha_registro, self.nro_telefonico, self.email)
+            valores_usuarios = (self.username, self.contraseña, self.nombre, self.apellido, self.dni, self.fecha_de_nacimiento, self.domicilio ,self.fecha_registro, self.nro_telefonico, self.email)
 
-            # Consulta SQL para insertar datos en la tabla "codigo_postal"
-            consulta_codigo_postal = "INSERT INTO codigo_postal (id_usuarios, codigo_postal, localidad, provincia) VALUES (LAST_INSERT_ID(), %s, %s, %s)"
-            valores_codigo_postal = (self.codigo_postal, self.localidad, self.provincia)
-            
-            
-            
             # Ejecutar la consulta de "usuarios" y luego la de "codigo_postal" 
             cursor.execute(consulta_usuarios, valores_usuarios)
-            cursor.execute(consulta_codigo_postal, valores_codigo_postal)
+            # cursor.execute(consulta_codigo_postal, valores_codigo_postal)
             
             # Consulta SQL para encontrar el id en la tabla roles 
             consulta = ("SELECT id_roles FROM roles WHERE rol = %s")
             valor= (self.rol,)
             cursor.execute(consulta,valor)
+            
             # Recupera el id de roles
             resultado = cursor.fetchone()
             id_cliente = resultado[0]
@@ -227,6 +219,7 @@ class Usuario:
             consulta = ("SELECT id_usuarios FROM usuarios WHERE  username = %s")
             valor = (self.username,)
             cursor.execute(consulta,valor)
+            
             # Recupera el id de usuario
             resultado = cursor.fetchone()
             id_usuario = resultado[0]
@@ -253,24 +246,24 @@ class Usuario:
 
         
         # Consulta SQL para recuperar los datos del usuario, incluyendo localidad y provincia
-        consulta = "SELECT username, nombre, apellido, dni, fecha_de_nacimiento, direccion, nro_telefonico, email  FROM usuarios WHERE username = %s"
+        consulta = "SELECT username, nombre, apellido, dni, fecha_de_nacimiento, nro_telefonico, email  FROM usuarios WHERE username = %s"
         valor = (username,)
         cursor.execute(consulta, valor)
-        resultado_consulta = cursor.fetchone()
-
-        if resultado_consulta:
+        resultado_consulta_usuario = cursor.fetchone()
+        
+        if resultado_consulta_usuario :
             # Mostrar los datos del usuario
             print("Datos del usuario:")
-            print("Usuario:", resultado_consulta[0])
-            print("Nombre:", resultado_consulta[1])
-            print("Apellido:", resultado_consulta[2])
-            print("DNI:", resultado_consulta[3])
-            print("Fecha de Nacimiento:", resultado_consulta[4])
-            print("Dirección:", resultado_consulta[5])
-            print("Número Telefónico:", resultado_consulta[6])
-            print("Email:", resultado_consulta[7])
-            print("Localidad:", resultado_consulta[8])
-            print("Provincia:", resultado_consulta[9])
+            print("Usuario:", resultado_consulta_usuario[0])
+            print("Nombre:", resultado_consulta_usuario[1])
+            print("Apellido:", resultado_consulta_usuario[2])
+            print("DNI:", resultado_consulta_usuario[3])
+            fecha_nacimiento =  resultado_consulta_usuario[4]
+            fecha_formateada = fecha_nacimiento.strftime('%d/%m/%Y')
+            print("Fecha de Nacimiento:", fecha_formateada)
+            print("Número Telefónico:", resultado_consulta_usuario[5])
+            print("Email:", resultado_consulta_usuario[6])
+            
         else:
             print("Usuario no encontrado")
 
@@ -280,24 +273,194 @@ class Usuario:
         # Cerrar la conexión a la base de datos
         conexion.cerrar_base()
 
-    # ...
-
-            
-            
-
     def eliminar_usuario(self):
         # implementacion del metodo
         pass
 
-    def modificar_usuario():
-       # Iniciamos la base de datos
-            conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
-            cursor = conexion.cursor()
+    def modificar_usuario(self,username, campo,nuevo_valor ):
+        # Iniciamos la base de datos
+        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        cursor = conexion.cursor()
+        
+        #Ejecutamos la actualizacion    
+        consulta = "UPDATE usuarios SET {} = %s WHERE username = %s " .format (campo)  
+        valor = (nuevo_valor, username)
+        cursor.execute(consulta, valor) 
             
-            print ("¿Que dato desea modificar")
-            
-            mostrar_usuario()
-             
+        # Confirmar los cambios en la base de datos
+        conexion.confirmar_cambios()
+
+        # Cerrar la conexión a la base de datos
+        conexion.cerrar_base()
+        
+    def verificar_contraseña_actual (self, username ):
+        # Iniciamos la base de datos
+        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        cursor = conexion.cursor()
+        
+        #Verificamos en la base de datos
+        consulta = "Select contraseña FROM usuarios WHERE username = %s"
+        valor = (username,)
+        cursor.execute(consulta,valor)
+        resultado_consulta = cursor.fetchone()
+        
+        #Comprobamos la igualdad
+        while True:
+            contraseña_actual = input ("Ingrese su contraseña actual: ")
+            if contraseña_actual == resultado_consulta [0] :
+                return 
+            else :
+                print ("Contraseña incorrecta")
+     
+    def ser_administrador (self, username, nuevo_valor):
+        # Iniciamos la base de datos
+        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        cursor = conexion.cursor()
+        
+        consulta = "Select id_roles FROM roles WHERE rol = %s"
+        valor = (nuevo_valor,)
+        cursor.execute(consulta,valor)
+        resultado_consulta_rol = cursor.fetchone()            
+        
+        consulta = "Select id_usuarios FROM usuarios WHERE username = %s"
+        valor = (username,)
+        cursor.execute(consulta,valor)
+        resultado_consulta_usuario = cursor.fetchone()
+        
+        consulta = "UPDATE usuario_roles SET id_roles= %s WHERE id_usuarios = %s"
+        valor = (resultado_consulta_rol[0], resultado_consulta_usuario[0])
+        cursor.execute(consulta,valor)
+        resultado_consulta_rol = cursor.fetchone()
+        
+        # Confirmar los cambios en la base de datos
+        conexion.confirmar_cambios()
+
+        # Cerrar la conexión a la base de datos
+        conexion.cerrar_base()
+                    
+        
+    def cargar_datos_envios (self, username):
+        # Iniciamos la base de datos
+        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        cursor = conexion.cursor()
+        
+        # Agregamos la direccion del usuario a la base de datos
+        direccion = input ("Ingrese su direccion: ")
+        consulta = "UPDATE usuarios SET direccion = %s where username = %s"
+        valores = (direccion , username,)
+        cursor.execute(consulta,valores)
+        
+        # Consultamos cual es esa direccion en la base de datos
+        consulta = "SELECT direccion, id_usuarios FROM usuarios where username = %s"
+        valor = (username,)
+        cursor.execute(consulta,valor)
+        resultado_direccion = cursor.fetchone()
+        
+        # Consultamos cual es el codigo postal del usuario en la base de datos y buscamos la localidad del mismo
+        codigo_postal =  int (input("Ingrese su codigo postal: ") )
+        consulta = "SELECT id_provincia, localidad, codigo_postal, id_codigo_postal FROM codigo_postal WHERE codigo_postal= %s LIMIT 1"
+        valor = (codigo_postal,)
+        cursor.execute(consulta,valor)
+        resultado_codigo_postal = cursor.fetchone()
+        
+        #Buscamos la provincia del usuario
+        consulta = "SELECT provincia FROM provincia WHERE id_provincia = %s"
+        valor = (resultado_codigo_postal [0])
+        cursor.execute(consulta,valor)
+        resultado_provincia = cursor.fetchone()
+        
+        #Establecemos la relacion entre el usuario y el codigo postal
+        consulta = "INSERT INTO envios (id_usuarios, id_codigo_postal) VALUES (%s, %s)"
+        valores = (resultado_direccion [1],resultado_codigo_postal[3])
+        cursor.execute(consulta,valores)
+        
+        print ("Sus envios seren despachados hacia la direccion {} en la localidad de {} de la provincia de {}. \n Codigo postal: {} \n Muchas gracias ".format (resultado_direccion [0],resultado_codigo_postal[1],resultado_provincia[0],resultado_codigo_postal[2]))
+        
+        
+        # Confirmar los cambios en la base de datos
+        conexion.confirmar_cambios()
+
+        # Cerrar la conexión a la base de datos
+        conexion.cerrar_base()
+                    
+    def mostrar_datos_envios (self,username):
+        # Iniciamos la base de datos
+        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        cursor = conexion.cursor()
+        
+        # Consultamos cual es esa direccion en la base de datos
+        consulta = "SELECT direccion, id_usuarios FROM usuarios where username = %s"
+        valor = (username,)
+        cursor.execute(consulta,valor)
+        resultado_direccion = cursor.fetchone()
+        
+        # Consultamos cual es el codigo postal del usuario 
+        consulta = "SELECT id_codigo_postal FROM envios WHERE id_usuarios= %s "
+        valor = (resultado_direccion[1], )
+        cursor.execute(consulta,valor)
+        resultado_envio = cursor.fetchone()
+        
+        #Buscamos la localidad del usuario 
+        consulta = "SELECT id_provincia, localidad, codigo_postal  FROM codigo_postal WHERE id_codigo_postal= %s "
+        valor = (resultado_envio)
+        cursor.execute(consulta,valor)
+        resultado_codigo_postal = cursor.fetchone()
+        
+        #Buscamos la provincia del usuario
+        consulta = "SELECT provincia FROM provincia WHERE id_provincia = %s"
+        valor = (resultado_codigo_postal [0],)
+        cursor.execute(consulta,valor)
+        resultado_provincia = cursor.fetchone()
+        
+        print ("Sus envios seran despachados hacia la direccion {} en la localidad de {} de la provincia de {}. \n Codigo postal: {}  ".format (resultado_direccion[0],resultado_codigo_postal[1],resultado_provincia[0],resultado_codigo_postal[2]))
+         
+        # Confirmar los cambios en la base de datos
+        conexion.confirmar_cambios()
+
+        # Cerrar la conexión a la base de datos
+        conexion.cerrar_base()   
+        
+    def modificar_datos_envios (self, username, campo, nuevo_valor, nuevo_valor_postal):
+        # Iniciamos la base de datos
+        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        cursor = conexion.cursor()
+        
+        #Ejecutamos la actualizacion    
+        consulta = "UPDATE usuarios SET {} = %s WHERE username = %s " .format (campo)  
+        valor = (nuevo_valor, username)
+        cursor.execute(consulta, valor) 
+        
+        # Consultamos cual es esa direccion en la base de datos
+        consulta = "SELECT direccion, id_usuarios FROM usuarios where username = %s"
+        valor = (username,)
+        cursor.execute(consulta,valor)
+        resultado_direccion = cursor.fetchone()
+        
+        # Consultamos cual es el codigo postal del usuario en la base de datos y buscamos la localidad del mismo
+        consulta = "SELECT id_provincia, localidad, codigo_postal, id_codigo_postal FROM codigo_postal WHERE codigo_postal= %s LIMIT 1"
+        valor = (nuevo_valor_postal,)
+        cursor.execute(consulta,valor)
+        resultado_codigo_postal = cursor.fetchone()
+        
+        #Buscamos la provincia del usuario
+        consulta = "SELECT provincia FROM provincia WHERE id_provincia = %s"
+        valor = (resultado_codigo_postal [0],)
+        cursor.execute(consulta,valor)
+        resultado_provincia = cursor.fetchone()
+        
+        #Establecemos la relacion entre el usuario y el codigo postal
+        consulta = "UPDATE envios SET id_codigo_postal= %s WHERE id_usuarios = %s"
+        valor = (resultado_codigo_postal[3],resultado_direccion [1])
+        cursor.execute(consulta,valor)
+        
+        print ("Sus envios seren despachados hacia la direccion {} en la localidad de {} de la provincia de {}. \n Codigo postal: {} ".format (resultado_direccion [0],resultado_codigo_postal[1],resultado_provincia[0],resultado_codigo_postal[2]))
+        
+        # Confirmar los cambios en la base de datos
+        conexion.confirmar_cambios()
+
+        # Cerrar la conexión a la base de datos
+        conexion.cerrar_base()
+                          
     
     def inicio_usuario (self):
         self.contador = 0
@@ -315,19 +478,20 @@ class Usuario:
             cursor.execute(consulta, valores)
             resultado_consulta = cursor.fetchone()
             
-            if resultado_consulta [0] == usuario_registrado and resultado_consulta [1] == contraseña:
+            if resultado_consulta is None:
+                print("Usuario o contraseña incorrectas. Inténtalo de nuevo.")
+                self.contador += 1
+            
+            elif resultado_consulta [0] == usuario_registrado and resultado_consulta [1] == contraseña:
                 print("Inicio de sesión exitoso. Bienvenido,", usuario_registrado)
                 username = usuario_registrado
-                return username
+                return username, False
             
             else:
-                if resultado_consulta is None:
-                    print("Usuario o contraseña incorrectas. Inténtalo de nuevo.")
-                    self.contador += 1
-                else:
-                    print("Usuario o contraseña incorrectas. Inténtalo de nuevo.")
+                print("Usuario o contraseña incorrectas. Inténtalo de nuevo.")
                 self.contador += 1
         print("Has superado el número máximo de intentos. Cerrando la aplicación.")
+        return True
         
         # Confirmar los cambios en la base de datos
         conexion.confirmar_cambios()

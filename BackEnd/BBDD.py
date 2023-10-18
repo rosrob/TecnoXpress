@@ -49,12 +49,3 @@ class BaseDeDatos:
         if self.base:
             self.base.close()
 
-if __name__ == "__main__":
-    # Ejemplo de uso
-    conexion = BaseDeDatosMySQL("localhost", "usuario", "contrasena", "basededatos")
-    cursor = conexion.obtener_cursor()
-
-    # Realizar operaciones con el cursor
-
-    conexion.confirmar_cambios()
-    conexion.cerrar_base()
