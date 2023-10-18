@@ -59,6 +59,47 @@
   flex: 0;
 }
 
+/* SECCION BANNER */
+
+.banner {
+  text-align: center;
+  background-color: var(--fourty-color);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cardBanner {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.cardImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cardTextContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--thirty-color);
+  border-radius: 5px;
+}
+
+.cardTitle {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 2em;
+  text-align: right;
+  font-weight: bold;
+}
+.textColor {
+  font-size: 1em;
+  color: var(--primary-color);
+}
+
 /* SECCION DE NOSOTROS */
 
 .nosotros_section .container {
@@ -705,5 +746,11 @@ a span.mail,
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 30px;
     padding: 35px 0px;
+  }
+}
+
+@media (max-width: 575px) {
+  .cardTitle {
+    font-size: 1em;
   }
 }
