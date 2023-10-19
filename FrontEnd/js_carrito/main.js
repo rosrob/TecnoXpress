@@ -148,8 +148,8 @@ function verProducto(productoId){
          </div>
          </div
         `});
-        actualizarBotonesAgregar();
+       
         contenedorDeProductos.append(contenedorProductoSingle);
-
+        actualizarBotonesAgregar();
 } 
 
