@@ -29,7 +29,7 @@ USE `tecnoxpress`;
 CREATE TABLE `usuarios` (
 `id_usuarios` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(40) NOT NULL,
-  `contraseña` VARCHAR(13) NOT NULL,
+  `contrasena` VARCHAR(13) NOT NULL,
   `nombre` VARCHAR(60) NOT NULL,
   `apellido` VARCHAR(60) NULL DEFAULT NULL,
   `dni` INT NOT NULL,

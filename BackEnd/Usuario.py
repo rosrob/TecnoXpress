@@ -7,7 +7,7 @@ import sys
 class Usuario:
     def __init__(self,):
         self.__username = ""
-        self.__contraseña = ""
+        self.__contrasena = ""
         self.__fecha_registro = ""
         self.__nombre = ""
         self.__apellido = ""
@@ -30,12 +30,12 @@ class Usuario:
         self.__username = nuevo_usuario
     
     @property
-    def contraseña(self):
-        return self.__contraseña
+    def contrasena(self):
+        return self.__contrasena
     
-    @contraseña.setter
-    def contraseña(self, nueva_contraseña):
-        self.__contraseña = nueva_contraseña
+    @contrasena.setter
+    def contrasena(self, nueva_contrasena):
+        self.__contrasena = nueva_contrasena
 
     @property
     def fecha_registro(self):
@@ -136,7 +136,7 @@ class Usuario:
     
     def cargar_usuario(self):
         # Iniciamos la base de datos
-            conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+            conexion = BBDD.BaseDeDatos()
             cursor = conexion.cursor()
             
             while True:
@@ -153,13 +153,13 @@ class Usuario:
                 else:
                     print ("Este usuario ya existe, intente nuevamente")
             while True:
-                contraseña = input ("Ingrese una contraseña: ")
-                repetir_contraseña = input ("Repita la contraseña: ")
-                if contraseña == repetir_contraseña:
-                    self.contraseña = contraseña
+                contrasena = input ("Ingrese una contrasena: ")
+                repetir_contrasena = input ("Repita la contrasena: ")
+                if contrasena == repetir_contrasena:
+                    self.contrasena = contrasena
                     break
                 else:
-                    print ("Las contraseñas deben coincidir")                
+                    print ("Las contrasenas deben coincidir")                
             nombre = input ("Ingrese su nombre: ")
             self.nombre = nombre
             apellido = input ("Ingrese su apellido: ")
@@ -185,9 +185,9 @@ class Usuario:
                         break
                         
                     elif opcion == 2:
-                        contraseña_admin = "admin"
-                        contraseña_entrada= input ("Ingrese el codigo proporcionado por la empresa: ")
-                        if contraseña_admin == contraseña_entrada:
+                        contrasena_admin = "admin"
+                        contrasena_entrada= input ("Ingrese el codigo proporcionado por la empresa: ")
+                        if contrasena_admin == contrasena_entrada:
                             rol = "administrador"
                             self.rol = rol
                             break
@@ -200,8 +200,8 @@ class Usuario:
             
             
             # Consulta SQL para insertar datos en la tabla "usuarios"
-            consulta_usuarios = "INSERT INTO usuarios (username, contraseña, nombre, apellido, dni, fecha_de_nacimiento, direccion, fecha_registro, nro_telefonico, email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            valores_usuarios = (self.username, self.contraseña, self.nombre, self.apellido, self.dni, self.fecha_de_nacimiento, self.domicilio ,self.fecha_registro, self.nro_telefonico, self.email)
+            consulta_usuarios = "INSERT INTO usuarios (username, contrasena, nombre, apellido, dni, fecha_de_nacimiento, direccion, fecha_registro, nro_telefonico, email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            valores_usuarios = (self.username, self.contrasena, self.nombre, self.apellido, self.dni, self.fecha_de_nacimiento, self.domicilio ,self.fecha_registro, self.nro_telefonico, self.email)
 
             # Ejecutar la consulta de "usuarios" y luego la de "codigo_postal" 
             cursor.execute(consulta_usuarios, valores_usuarios)
@@ -276,7 +276,7 @@ class Usuario:
 
     def eliminar_usuario(self,username):
         # Iniciamos la base de datos
-        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        conexion = BBDD.BaseDeDatos()
         cursor = conexion.cursor()
         
         consulta = "SELECT id_usuarios FROM usuarios WHERE username = %s"
@@ -298,7 +298,7 @@ class Usuario:
         
     def modificar_usuario(self,username, campo,nuevo_valor ):
         # Iniciamos la base de datos
-        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        conexion = BBDD.BaseDeDatos()
         cursor = conexion.cursor()
         
         #Ejecutamos la actualizacion    
@@ -312,28 +312,28 @@ class Usuario:
         # Cerrar la conexión a la base de datos
         conexion.cerrar_base()
         
-    def verificar_contraseña_actual (self, username ):
+    def verificar_contrasena_actual (self, username ):
         # Iniciamos la base de datos
-        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        conexion = BBDD.BaseDeDatos()
         cursor = conexion.cursor()
         
         #Verificamos en la base de datos
-        consulta = "Select contraseña FROM usuarios WHERE username = %s"
+        consulta = "Select contrasena FROM usuarios WHERE username = %s"
         valor = (username,)
         cursor.execute(consulta,valor)
         resultado_consulta = cursor.fetchone()
         
         #Comprobamos la igualdad
         while True:
-            contraseña_actual = input ("Ingrese su contraseña actual: ")
-            if contraseña_actual == resultado_consulta [0] :
+            contrasena_actual = input ("Ingrese su contrasena actual: ")
+            if contrasena_actual == resultado_consulta [0] :
                 return 
             else :
-                print ("Contraseña incorrecta")
+                print ("contrasena incorrecta")
      
     def ser_administrador (self, username, nuevo_valor):
         # Iniciamos la base de datos
-        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        conexion = BBDD.BaseDeDatos()
         cursor = conexion.cursor()
         
         consulta = "Select id_roles FROM roles WHERE rol = %s"
@@ -360,7 +360,7 @@ class Usuario:
         
     def cargar_datos_envios (self, username):
         # Iniciamos la base de datos
-        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        conexion = BBDD.BaseDeDatos()
         cursor = conexion.cursor()
         
         # Agregamos la direccion del usuario a la base de datos
@@ -384,7 +384,7 @@ class Usuario:
         
         #Buscamos la provincia del usuario
         consulta = "SELECT provincia FROM provincia WHERE id_provincia = %s"
-        valor = (resultado_codigo_postal [0])
+        valor = (resultado_codigo_postal [0],)
         cursor.execute(consulta,valor)
         resultado_provincia = cursor.fetchone()
         
@@ -393,7 +393,7 @@ class Usuario:
         valores = (resultado_direccion [1],resultado_codigo_postal[3])
         cursor.execute(consulta,valores)
         
-        print ("Sus envios seren despachados hacia la direccion {} en la localidad de {} de la provincia de {}. \n Codigo postal: {} \n Muchas gracias ".format (resultado_direccion [0],resultado_codigo_postal[1],resultado_provincia[0],resultado_codigo_postal[2]))
+        print ("Sus envios seran despachados hacia la direccion {} en la localidad de {} de la provincia de {}. \n Codigo postal: {} \n Muchas gracias ".format (resultado_direccion [0],resultado_codigo_postal[1],resultado_provincia[0],resultado_codigo_postal[2]))
         
         
         # Confirmar los cambios en la base de datos
@@ -404,7 +404,7 @@ class Usuario:
                     
     def mostrar_datos_envios (self,username):
         # Iniciamos la base de datos
-        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        conexion = BBDD.BaseDeDatos()
         cursor = conexion.cursor()
         
         # Consultamos cual es esa direccion en la base de datos
@@ -441,7 +441,7 @@ class Usuario:
         
     def modificar_datos_envios (self, username, campo, nuevo_valor, nuevo_valor_postal):
         # Iniciamos la base de datos
-        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        conexion = BBDD.BaseDeDatos()
         cursor = conexion.cursor()
         
         #Ejecutamos la actualizacion    
@@ -485,12 +485,12 @@ class Usuario:
         self.contador = 0
         
         # Iniciamos la base de datos
-        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        conexion = BBDD.BaseDeDatos()
         cursor = conexion.cursor()
             
         while (True):    
             usuario_registrado = input ("Ingrese su usuario: ")
-            contraseña = input ("ingrese la contraseña: ")
+            contrasena = input ("ingrese la contrasena: ")
             # Ver si el usuario es unico
             consulta = "SELECT usuario_eliminado FROM usuario_eliminado WHERE usuario_eliminado =  %s"
             valor = (usuario_registrado,)
@@ -498,16 +498,16 @@ class Usuario:
             resultado_consulta = cursor.fetchone()
             if resultado_consulta is None :
                 # Consultar la base de datos para verificar las credenciales
-                consulta = "SELECT username, contraseña FROM usuarios WHERE username = %s AND contraseña = %s"
-                valores = (usuario_registrado, contraseña)
+                consulta = "SELECT username, contrasena FROM usuarios WHERE username = %s AND contrasena = %s"
+                valores = (usuario_registrado, contrasena)
                 cursor.execute(consulta, valores)
                 resultado_consulta_usuario = cursor.fetchone()
                 
                 if resultado_consulta_usuario is None:
-                    print("Usuario o contraseña incorrectas. Inténtalo de nuevo.")
+                    print("Usuario o contrasena incorrectas. Inténtalo de nuevo.")
                     self.contador += 1
                 
-                elif resultado_consulta_usuario [0] == usuario_registrado and resultado_consulta_usuario [1] == contraseña:
+                elif resultado_consulta_usuario [0] == usuario_registrado and resultado_consulta_usuario [1] == contrasena:
                     print (Decoradores.decorador)
                     print("Inicio de sesión exitoso. Bienvenido,", usuario_registrado)
                     print (Decoradores.decorador)

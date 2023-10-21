@@ -54,6 +54,12 @@ def menu_usuario (username):
                 elif opcion == 3:
                     usuario = Usuario ()
                     usuario.cargar_datos_envios(username)
+                    while True:
+                        print ("0- Volver al menu de usuario")
+                        opcion = int(input(Decoradores.opcion))
+                        if opcion == 0:
+                            break
+                        print ("Ingrese 0 si quiere volver al menu de usuario")
                     
                 elif opcion == 4:
                     usuario = Usuario ()

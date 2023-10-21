@@ -1,5 +1,6 @@
+import os
 import mysql.connector
-import Tablas
+from mysql.connector import Error
 
 class BaseDeDatos:
     
@@ -36,6 +37,8 @@ class BaseDeDatos:
         cursor.execute("CREATE DATABASE tecnoxpress")
         print("Base de datos 'tecnoxpress' creada con éxito.")
         
+        self.crear_tablas ()
+        
          
 
     def abrir_base(self):
@@ -49,18 +52,6 @@ class BaseDeDatos:
         )
         return self.conexion
     
-    # def abrir_base(self):
-    #     # Conectarse a la base de datos
-    #     self.conexion = mysql.connector.connect(
-    #         host= "127.0.0.1",
-    #         puerto = 3306 ,
-    #         user="root",
-    #         password= "Franco4567",
-    #         database= "tecnoxpress")
-    #     print ("conexion a dase de datos exitosa")
-        
-        return self.conexion
-
     def cursor(self):
         # Obtener un cursor para ejecutar consultas SQL
         self.base = self.abrir_base()
@@ -78,3 +69,40 @@ class BaseDeDatos:
         if self.base:
             self.base.close()
 
+    def crear_tablas(self):
+        current_directory = os.path.dirname(os.path.realpath(__file__))
+
+        # Ruta completa al archivo SQL
+        sql_file_path = os.path.join(current_directory,'sql', 'SQL_TecnoXpress.sql')
+        
+        try:
+            # Configuración de la conexión a la base de datos
+            conexion = self.abrir_base()
+            cursor = conexion.cursor()
+
+            with open(sql_file_path, 'r') as file:
+                sql_script = file.read()
+
+            with open(sql_file_path, 'r') as file:
+                sql_statements = file.read().split(';')
+
+            for statement in sql_statements:
+                if statement.strip():
+                    cursor.execute(statement)
+
+
+            # Confirmar los cambios en la base de datos
+            conexion.commit()
+            print("Tablas creadas con éxito.")
+
+        except Error as e:
+            print(f"Error: {e}")
+
+        finally:
+            if conexion:
+                cursor.close()
+                conexion.close()
+
+
+
+          
