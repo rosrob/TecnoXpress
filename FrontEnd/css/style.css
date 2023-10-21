@@ -427,198 +427,36 @@ ul,
 /* FIN SECCION DE CONTACTO */
 
 /*INICIO PIE DE PAGINA*/
-.pieDePagina {
-  width: 100%;
-  background-color: var(--secondary-color);
-}
-img {
-  width: 200px;
-}
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+
+.redesLinks,
+me-4 {
+  color: var(--sixty-color);
+  text-decoration: none;
 }
 
-.info {
-  color: var(--fourty-color);
+.redesLinks,
+a:hover {
+  color: var(--eighty-color);
 }
-span {
-  font-size: 13px;
+
+.payMedia,
+a {
+  color: var(--sixty-color);
 }
-.fa-brands,
-.fa {
-  text-align: center;
-  background: #312a2aad;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin: 0px auto;
-  padding: 15px;
-  font-size: 20px;
+
+.payMedia,
+a:hover {
+  color: var(--eighty-color);
 }
-a span.mail,
-.mail-brands {
-  text-align: center;
-  background: #312a2aad;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin: 0px auto;
-  padding: 12px 15px;
-  font-size: 20px;
+
+.border-bottom {
+  background-color: var(--fifty-color);
 }
-.tw-brands,
-.tw {
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 50%;
-  color: black;
-  width: 60px;
-  height: 60px;
-  margin: 0px auto;
-  font-size: 20px;
-  text-align: center;
+
+.copyRights {
+  background-color: var(--secondary-color);
 }
-.insta-brands,
-.insta {
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 50%;
-  color: pink;
-  width: 60px;
-  height: 60px;
-  margin: 0px auto;
-  font-size: 20px;
-  text-align: center;
-}
-.tk-brands,
-.tk {
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 50%;
-  color: black;
-  width: 60px;
-  height: 60px;
-  margin: 0px auto;
-  font-size: 20px;
-  text-align: center;
-}
-.vi-brands,
-.vi {
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 50%;
-  color: blue;
-  width: 60px;
-  height: 60px;
-  margin: 0px auto;
-  font-size: 20px;
-  text-align: center;
-}
-.ms-brands,
-.ms {
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 50%;
-  color: red;
-  width: 60px;
-  height: 60px;
-  margin: 0px auto;
-  font-size: 20px;
-  text-align: center;
-}
-.amx-brands,
-.amx {
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 50%;
-  color: cornflowerblue;
-  width: 60px;
-  height: 60px;
-  margin: 0px auto;
-  font-size: 20px;
-  text-align: center;
-}
-.pay-brands,
-.pay {
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 50%;
-  color: skyblue;
-  width: 60px;
-  height: 60px;
-  margin: 0px auto;
-  font-size: 20px;
-  text-align: center;
-}
-.btc-brands,
-.btc {
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 50%;
-  color: orange;
-  width: 60px;
-  height: 60px;
-  margin: 0px auto;
-  font-size: 20px;
-  text-align: center;
-}
-.wsp-brands,
-.wsp {
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 50%;
-  color: green;
-  width: 60px;
-  height: 60px;
-  margin: 0px auto;
-  font-size: 20px;
-  text-align: center;
-}
-.mail-brands,
-.mail {
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 50%;
-  color: white;
-  width: 60px;
-  height: 60px;
-  margin: 0px auto;
-  font-size: 20px;
-  text-align: center;
-}
-.pieDePagina .grupo-1 {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px;
-  padding: 45px 0px;
-}
-.pieDePagina .grupo-1 .box h2 {
-  color: var(--fourty-color);
-  margin-bottom: 10px;
-  font-size: 20px;
-}
-.pieDePagina .grupo-2 {
-  background-color: #494949;
-  padding: 10px 15px;
-  color: black;
-  text-align: center;
-}
-.pieDePagina .grupo-2 small {
-  font-size: 15px;
-}
-.redes {
-  display: flex;
-  column-gap: 10px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
+
 /*FIN PIE DE PAGINA*/
 
 /*INICIO FORMULARIO DE INGRESO*/
