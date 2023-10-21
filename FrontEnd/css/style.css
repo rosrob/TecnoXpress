@@ -615,8 +615,26 @@ a span.mail,
   text-decoration-line: underline;
   padding: 10px;
   outline: 0;
- 
- 
+}
+
+.Enviar {
+  width: 50%;
+  background-color: var(--sixty-color);
+  padding: 5px 50px;
+  color: white;
+  font-size: 1em;
+  border: 0px;
+  margin: 20px;
+  padding-top: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.Enviar:hover,
+.Enviar:focus{
+  background: var(--eighty-color);
+  color: var(--sixty-color);
+  transition: background-color 1s ease-out;
+  
 }
 
 
@@ -665,6 +683,7 @@ a span.mail,
   outline: 0;
   margin: 0%;
 }
+
 .dato,
 .link,
 .button{

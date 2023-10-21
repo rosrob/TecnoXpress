@@ -74,58 +74,56 @@
 </header>
 <h2 class="tituloform">Formulario de Registro</h2> 
 
-    <main class="cuerpo">
-        <div class="conteiner_registration">
-          <form class="formulario-registro" action="" method="">
-          <div class="contenedor-grid-izq">
-            
-              <p>
-                <label class="dato">Nombre</label>
-                <input class="celda" type="text" name="nombre" id="nombre" minlength="2" maxlength="30" required><br>
-              </p>
-              <p>
-                <label class="dato">DNI</label>
-                <input class="celda" type="text" name="DNI" id="DNI" minlength="8" maxlength="8" required><br>
-              </p>
-              <p>
-                <label class="dato">Celular</label> 
-                <input class="celda" type="tel" name="celular" id="Celular" required><br>
-              </p>
-              <p>
-                <label class="dato">Contraseña</label>
-                <input class="celda" type="password" name="contraseña" id="Contraseña" required><br>
-              </p>
-              <p class="link">Estoy de acuerdo con los <a href="#" id="link">Terminos y Condiciones</a></p>
-              <p>
-                <button class="button " type="submit">
-                  <span class=" "> Registrar </span>
-              </button>
-             </p>
-            </form>
-          </div> 
-          <div class="contenedor-grid-der">
-            <form action="" method="">
-              <p>
-                <label class="dato" >Apellido</label>
-                <input class="celda" type="text" name="apellido" id="apellido" minlength="2" maxlength="30" required><br>
-              </p>
-              <p>
-                <label class="dato">Fecha de Nacimiento</label>
-                <input class="celda" type="number" name="fecha de nacimiento" id="Fecha de nacimiento" required><br>
-              </p>
-              <p>
-                <label class="dato">Email</label>
-                <input class="celda" type="email" name="email" id="Email" required><br>
-              </p>
-               <p>
-                <label class="dato">Confirmar contraseña</label>
-                <input class="celda" type="password" name="confirmar contraseña" id="Confirmar contraseña" required><br>
-              </p>
-            </div> 
-            </form>
-         </form> 
+<main class="cuerpo">
+  <div class="container_registration">
+    <form class="formulario-registro" id="formulario-registro" action="" method="post">
+      <div class="contenedor-grid-izq">
+        <p>
+          <label class="dato" for="nombre">Nombre</label>
+          <input class="celda" type="text" name="nombre" id="nombre" minlength="2" maxlength="30" required>
+        </p>
+        <p>
+          <label class="dato" for="DNI">DNI</label>
+          <input class="celda" type="text" name="DNI" id="DNI" minlength="8" maxlength="8" required>
+        </p>
+        <p>
+          <label class="dato" for="Celular">Celular</label>
+          <input class="celda" type="tel" name="celular" id="Celular" required>
+        </p>
+        <p>
+          <label class="dato" for="Contraseña">Contraseña</label>
+          <input class="celda" type="password" name="contraseña" id="Contraseña" required>
+        </p>
+        <p class="link">Estoy de acuerdo con los <a href="#" id="link">Términos y Condiciones</a></p>
+        <p>
+          <button class="button" type="submit">
+            <span>Registrar</span>
+          </button>
+        </p>
+      </div>
+      <div class="contenedor-grid-der">
+        <form action="" method="post">
+          <p>
+            <label class="dato" for="apellido">Apellido</label>
+            <input class="celda" type="text" name="apellido" id="apellido" minlength="2" maxlength="30" required>
+          </p>
+          <p>
+            <label class="dato" for="Fecha de nacimiento">Fecha de Nacimiento</label>
+            <input class="celda" type="date" name="fecha_de_nacimiento" value="" min="1900-01-01" max="2018-12-31" id="Fecha_de_nacimiento">
+          </p>
+          <p>
+            <label class="dato" for="Email">Email</label>
+            <input class="celda" type="email" name="email" id="Email" required>
+          </p>
+          <p>
+            <label class="dato" for="Confirmar contraseña">Confirmar contraseña</label>
+            <input class="celda" type="password" name="confirmar_contraseña" id="Confirmar_contraseña" required>
+          </p>
         </div>
-    </main>
+        </form>
+      </form>
+    </div>
+  </main>
     <footer class="pieDePagina">
       <div class="grupo-1">
           <div class="box">
@@ -172,5 +170,6 @@
       </div>
   </footer> 
 </div>
+<script src="form-registro.js"></script>
 </body>
 </html>
