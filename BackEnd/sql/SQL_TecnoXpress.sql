@@ -43,6 +43,23 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8mb4;
 
+-- ------------------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `provicias`
+--
+CREATE TABLE `Usuario_eliminado` (
+  `id_usuario_eliminado` INT NOT NULL AUTO_INCREMENT ,
+  `id_usuarios` INT NOT NULL ,
+`usuario_eliminado` varchar (40),
+  PRIMARY KEY (`id_usuario_eliminado`),
+  CONSTRAINT `fk_usuario_eliminados`
+    FOREIGN KEY (`id_usuarios`)
+    REFERENCES `usuarios` (`id_usuarios`))
+      
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
 -- -------------------------------------------------------------
 --
 -- Estructura de tabla para la tabla `roles`
@@ -78,6 +95,39 @@ ENGINE = InnoDB;
 
 -- -------------------------------------------------------------
 --
+-- Estructura de tabla para la tabla `categoria_productos`
+--
+
+CREATE TABLE `categoria_productos` (
+  `id_categoria_productos` INT NOT NULL AUTO_INCREMENT,
+  `tipo` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_categoria_productos`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 7
+DEFAULT CHARACTER SET = utf8mb4;
+--
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `id_productos` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(50) NULL DEFAULT NULL,
+  `descripcion` VARCHAR(300) NULL DEFAULT NULL,
+  `imagen_url` VARCHAR(300) NULL DEFAULT NULL,
+  `precio` DOUBLE NULL DEFAULT NULL,
+  `stock` INT NULL DEFAULT NULL,
+  `id_categoria_productos` INT NULL DEFAULT NULL,
+  PRIMARY KEY (`id_productos`),
+  CONSTRAINT `fk_categoria_productos`
+    FOREIGN KEY (`id_categoria_productos`)
+    REFERENCES `categoria_productos` (`id_categoria_productos`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 9
+DEFAULT CHARACTER SET = utf8mb4;
+-- -----------------------------------------------------------------
+--
 -- Estructura de tabla para la tabla `carrito_compras`
 --
 
@@ -104,6 +154,19 @@ DEFAULT CHARACTER SET = utf8mb4;
 
 -- --------------------------------------------------------
 --
+-- Estructura de tabla para la tabla `provicias`
+--
+CREATE TABLE `provincia` (
+  `id_provincia` INT NOT NULL AUTO_INCREMENT ,
+  `provincia` VARCHAR(50) NOT NULL ,
+  PRIMARY KEY (`id_provincia`)) 
+      
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+  
+-- -------------------------------------------------------------------
+--
 -- Estructura de tabla para la tabla `codigo_postal`
 --
 
@@ -122,19 +185,7 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 -- ------------------------------------------------------------------
---
--- Estructura de tabla para la tabla `provicias`
---
-CREATE TABLE `provincia` (
-  `id_provincia` INT NOT NULL AUTO_INCREMENT ,
-  `provincia` VARCHAR(50) NOT NULL ,
-  PRIMARY KEY (`id_provincia`)) 
-      
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-  
--- -------------------------------------------------------------------
+
 --
 -- Estructura de tabla para la tabla `envios`
 --
@@ -155,43 +206,6 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
   
 -- -------------------------------------------------------------------
---
--- Estructura de tabla para la tabla `categoria_productos`
---
-
-CREATE TABLE `categoria_productos` (
-  `id_categoria_productos` INT NOT NULL AUTO_INCREMENT,
-  `tipo` VARCHAR(50) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_categoria_productos`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 7
-DEFAULT CHARACTER SET = utf8mb4;
---
--- --------------------------------------------------------
---
--- Estructura de tabla para la tabla `detalle_pedido`
---
-
-CREATE TABLE `detalle_pedido` (
-  `id_detalle_pedido` INT NOT NULL AUTO_INCREMENT,
-  `id_productos` INT NOT NULL,
-  `precio_unitario` DOUBLE NOT NULL,
-  `cantidad` INT NOT NULL,
-  `pedido_id_pedido` INT NOT NULL,
-  PRIMARY KEY (`id_detalle_pedido`),
-  CONSTRAINT `fk_detalle_pedido_producto`
-    FOREIGN KEY (`id_productos`)
-    REFERENCES `productos` (`id_productos`),
-  CONSTRAINT `fk__pedido1`
-    FOREIGN KEY (`pedido_id_pedido`)
-    REFERENCES `tecnoxpress`.`pedido` (`id_pedido`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-AUTO_INCREMENT = 5
-DEFAULT CHARACTER SET = utf8mb4;
-
--- --------------------------------------------------------
 --
 -- Estructura de tabla para la tabla `pedido`
 --
@@ -224,22 +238,26 @@ AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4;
 -- --------------------------------------------------------
 --
--- Estructura de tabla para la tabla `productos`
+-- Estructura de tabla para la tabla `detalle_pedido`
 --
 
-CREATE TABLE `productos` (
-  `id_productos` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(50) NULL DEFAULT NULL,
-  `descripcion` VARCHAR(300) NULL DEFAULT NULL,
-  `precio` DOUBLE NULL DEFAULT NULL,
-  `stock` INT NULL DEFAULT NULL,
-  `id_categoria_productos` INT NULL DEFAULT NULL,
-  PRIMARY KEY (`id_productos`),
-  CONSTRAINT `fk_categoria_productos`
-    FOREIGN KEY (`id_categoria_productos`)
-    REFERENCES `categoria_productos` (`id_categoria_productos`))
+CREATE TABLE `detalle_pedido` (
+  `id_detalle_pedido` INT NOT NULL AUTO_INCREMENT,
+  `id_productos` INT NOT NULL,
+  `precio_unitario` DOUBLE NOT NULL,
+  `cantidad` INT NOT NULL,
+  `pedido_id_pedido` INT NOT NULL,
+  PRIMARY KEY (`id_detalle_pedido`),
+  CONSTRAINT `fk_detalle_pedido_producto`
+    FOREIGN KEY (`id_productos`)
+    REFERENCES `productos` (`id_productos`),
+  CONSTRAINT `fk__pedido1`
+    FOREIGN KEY (`pedido_id_pedido`)
+    REFERENCES `pedido` (`id_pedido`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4;
 
 -- --------------------------------------------------------

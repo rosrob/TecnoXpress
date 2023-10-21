@@ -1,6 +1,7 @@
 import BBDD
 import datetime
 import Decoradores
+import sys
 
 
 class Usuario:
@@ -273,10 +274,28 @@ class Usuario:
         # Cerrar la conexión a la base de datos
         conexion.cerrar_base()
 
-    def eliminar_usuario(self):
-        # implementacion del metodo
-        pass
+    def eliminar_usuario(self,username):
+        # Iniciamos la base de datos
+        conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
+        cursor = conexion.cursor()
+        
+        consulta = "SELECT id_usuarios FROM usuarios WHERE username = %s"
+        valor = (username,)
+        cursor.execute(consulta,valor)
+        resultado_consulta = cursor.fetchone()
+        
+        consulta = "INSERT INTO usuario_eliminado (id_usuarios, usuario_eliminado) VALUES (%s, %s)"
+        valor = (resultado_consulta[0], username)
+        cursor.execute(consulta, valor)
+        
+        print ("Usuario eliminado exitosamente")
+        
+        # Confirmar los cambios en la base de datos
+        conexion.confirmar_cambios()
 
+        # Cerrar la conexión a la base de datos
+        conexion.cerrar_base()
+        
     def modificar_usuario(self,username, campo,nuevo_valor ):
         # Iniciamos la base de datos
         conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
@@ -469,32 +488,61 @@ class Usuario:
         conexion = BBDD.BaseDeDatos("localhost", "root", "Franco4567", "tecnoxpress","3306")
         cursor = conexion.cursor()
             
-        while (self.contador < 3):    
+        while (True):    
             usuario_registrado = input ("Ingrese su usuario: ")
             contraseña = input ("ingrese la contraseña: ")
-            # Consultar la base de datos para verificar las credenciales
-            consulta = "SELECT username, contraseña FROM usuarios WHERE username = %s AND contraseña = %s"
-            valores = (usuario_registrado, contraseña)
-            cursor.execute(consulta, valores)
+            # Ver si el usuario es unico
+            consulta = "SELECT usuario_eliminado FROM usuario_eliminado WHERE usuario_eliminado =  %s"
+            valor = (usuario_registrado,)
+            cursor.execute (consulta,valor)
             resultado_consulta = cursor.fetchone()
-            
-            if resultado_consulta is None:
-                print("Usuario o contraseña incorrectas. Inténtalo de nuevo.")
-                self.contador += 1
-            
-            elif resultado_consulta [0] == usuario_registrado and resultado_consulta [1] == contraseña:
-                print("Inicio de sesión exitoso. Bienvenido,", usuario_registrado)
-                username = usuario_registrado
-                return username, False
-            
-            else:
-                print("Usuario o contraseña incorrectas. Inténtalo de nuevo.")
-                self.contador += 1
-        print("Has superado el número máximo de intentos. Cerrando la aplicación.")
-        return True
-        
-        # Confirmar los cambios en la base de datos
-        conexion.confirmar_cambios()
+            if resultado_consulta is None :
+                # Consultar la base de datos para verificar las credenciales
+                consulta = "SELECT username, contraseña FROM usuarios WHERE username = %s AND contraseña = %s"
+                valores = (usuario_registrado, contraseña)
+                cursor.execute(consulta, valores)
+                resultado_consulta_usuario = cursor.fetchone()
+                
+                if resultado_consulta_usuario is None:
+                    print("Usuario o contraseña incorrectas. Inténtalo de nuevo.")
+                    self.contador += 1
+                
+                elif resultado_consulta_usuario [0] == usuario_registrado and resultado_consulta_usuario [1] == contraseña:
+                    print (Decoradores.decorador)
+                    print("Inicio de sesión exitoso. Bienvenido,", usuario_registrado)
+                    print (Decoradores.decorador)
+                    # Confirmar los cambios en la base de datos
+                    conexion.confirmar_cambios()
 
-        # Cerrar la conexión a la base de datos
-        conexion.cerrar_base()
+                    # Cerrar la conexión a la base de datos
+                    conexion.cerrar_base()
+                    return usuario_registrado
+                    
+                
+                elif self.contador == 3:
+                    print ("Limites de intentos superados")
+                    print (Decoradores.cierre)
+                    # Confirmar los cambios en la base de datos
+                    conexion.confirmar_cambios()
+
+                    # Cerrar la conexión a la base de datos
+                    conexion.cerrar_base()
+                    sys.exit()
+                    
+                    
+            elif (resultado_consulta [0] == usuario_registrado):
+                print (Decoradores.decorador)
+                print("El usuario {} fue eliminado. Intente con otro usuario" .format (usuario_registrado))
+                print (Decoradores.decorador)
+                # Confirmar los cambios en la base de datos
+                conexion.confirmar_cambios()
+
+                # Cerrar la conexión a la base de datos
+                conexion.cerrar_base()
+                sys.exit()
+        
+        
+            
+        
+        
+        

@@ -1,13 +1,42 @@
 import mysql.connector
+import Tablas
 
 class BaseDeDatos:
-    def __init__(self, host, user, password, database,port):
-        self.host = host
-        self.user = user
-        self.password = password
-        self.database = database
-        self.port = port
+    
+    def __init__(self,):
+            self.host = "localhost"
+            self.user = "root"
+            self.password = "Franco4567"
+            self.database = "tecnoxpress"
+            self.port = 3306
+    
+    def base_de_datos_existe(self):
+        try:
+            conexion = mysql.connector.connect(
+                host=self.host,
+                user=self.user,
+                password=self.password
+            )
+            cursor = conexion.cursor()
+            cursor.execute("SHOW DATABASES")
+            databases = [database[0] for database in cursor]
+            return "tecnoxpress" in databases
+        except mysql.connector.Error as err:
+            print(f"Error: {err}")
+            return False
+
+    def crear_base_de_datos(self):
+       
+        conexion = mysql.connector.connect(
+            host=self.host,
+            user=self.user,
+            password=self.password
+        )
+        cursor = conexion.cursor()
+        cursor.execute("CREATE DATABASE tecnoxpress")
+        print("Base de datos 'tecnoxpress' creada con éxito.")
         
+         
 
     def abrir_base(self):
         # Conectarse a la base de datos
