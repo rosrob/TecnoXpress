@@ -541,8 +541,7 @@ class Usuario:
                 conexion.cerrar_base()
                 sys.exit()
         
-        
-            
+         
         
         
         

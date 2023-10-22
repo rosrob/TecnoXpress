@@ -134,8 +134,8 @@ DEFAULT CHARACTER SET = utf8mb4;
 CREATE TABLE `carrito_compras` (
   `id_carrito_compras` INT NOT NULL AUTO_INCREMENT,
   `id_productos` INT NULL DEFAULT NULL,
-  `total` DOUBLE NULL DEFAULT NULL,
-  `nro_factura` INT NULL DEFAULT NULL,
+  `precio` DOUBLE NULL DEFAULT NULL,
+  `cantidad` INT NULL DEFAULT NULL,
   `id_usuarios` INT NOT NULL,
   PRIMARY KEY (`id_carrito_compras`),
   CONSTRAINT `carrito_compras_ibfk_1`
@@ -288,6 +288,10 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Tabla "roles"
 --
 insert into roles(rol) values ("cliente"),("administrador");  
+--
+-- Tabla "categoria_productos"
+--
+insert into categoria_productos (tipo) values ("mouses"), ("teclados"), ("monitores");
 --
 -- Tabla "provincia"
 --
