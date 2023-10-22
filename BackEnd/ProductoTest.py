@@ -1,4 +1,5 @@
 import BBDD
+import Decoradores
 
 class Producto:
     def __init__(self):
@@ -33,6 +34,23 @@ class Producto:
         consulta_productos = "INSERT INTO productos (nombre, descripcion, imagen_url, precio, stock ) VALUES (%s, %s, %s, %s, %s)"
         valores_productos = (nombre, descripcion, url_imagen, precio, stock)
         cursor.execute(consulta_productos,valores_productos)
+        
+        
+        while True :
+            print ("¿Que categoria es? \n 1- Mouses \n 2- Teclado \n 3- Monitores")
+            opcion = int(input (Decoradores.opcion))
+            if (opcion >= 1 and opcion <= 3):
+                if opcion == 1:
+                    categoria = "mouses"
+                elif opcion == 2:
+                    categoria = "teclado"
+                elif opcion == 3 :
+                    categoria = "monitores"
+                    
+            else:
+                print(Decoradores.erroneo)
+
+        
         
         # Confirmar los cambios en la base de datos
         conexion.confirmar_cambios()
