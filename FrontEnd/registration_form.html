@@ -75,16 +75,16 @@
 <h2 class="tituloform">Formulario de Registro</h2>
 <main class="cuerpo">
   <div class="container_registration">
-    <form class="formulario-registro" id="formulario-registro" >
-      <div class="contenedor-grid-izq">
-        <p>
-          <label class="dato" for="nombre">Nombre</label>
-          <input class="celda" type="text" name="nombre" id="nombre" minlength="4" maxlength="20" pattern="[A-Za-z]+" required>
-        </p>
-        <p>
-          <label class="dato" for="DNI">DNI</label>
-          <input class="celda" type="number" name="DNI" id="DNI" minlength="8" maxlength="8" pattern=" [0-9] {10}" required>
-        </p>
+    <form class="formulario-registro" id="formulario-registro">
+        <div class="columna-izquierda">
+          <p>
+            <label class="dato" for="nombre">Nombre</label>
+            <input class="celda" type="text" name="nombre" id="nombre" minlength="4" maxlength="20" pattern="[A-Za-z]+" required>
+          </p>
+          <p>
+            <label class="dato" for="DNI">DNI</label>
+            <input class="celda" type="number" name="DNI" id="DNI" minlength="8" maxlength="8" pattern="[0-9]{8}" required>
+          </p>
         <p>
           <label class="dato" for="Celular">Celular</label>
           <input class="celda" type="number" name="celular" id="Celular" minlength="10" maxlength="10"  pattern=" [0-9] {10}" required>
@@ -93,14 +93,8 @@
           <label class="dato" for="Contraseña">Contraseña</label>
           <input class="celda" type="password" name="contraseña" id="Contraseña" minlength="4" maxlength="15" required>
         </p>
-        <p class="link">Estoy de acuerdo con los <a href="#" id="link">Términos y Condiciones</a></p>
-        <p>
-          <button class="button" type="submit">
-            <span>Registrar</span>
-          </button>
-        </p>
       </div>
-      <div class="contenedor-grid-der">
+      <div class="columna-derecha">
         <p>
           <label class="dato" for="apellido">Apellido</label>
           <input class="celda" type="text" name="apellido" id="apellido" minlength="4" maxlength="20" pattern="[A-Za-z]+" required>
@@ -117,9 +111,15 @@
           <label class="dato" for="ConfirmarContraseña">Confirmar contraseña</label>
           <input class="celda" type="password" name="confirmar_contraseña" id="ConfirmarContraseña" required>
         </p>
-      </div>
-    </form>
-  </div>
+     </div>
+     <p class="boton-container"> 
+      <button class="boton" type="submit">
+        <span>Registrar</span>
+      </button>
+    </p>
+    </div>
+  </form>
+</div>
 </main>
   <!-- Comienzo del footer -->
     <footer class="pieDePagina">

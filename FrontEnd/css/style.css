@@ -583,151 +583,152 @@ a span.mail,
   align-items: center;
   gap: 10px;
 }
-/*FIN PIE DE PAGINA*/
+/*FIN PIE DE PAGINA*
 
 /*INICIO FORMULARIO DE INGRESO*/
 
 .titulo {
   color: black;
   font-weight: bold;
-  background-color: white;
   text-align: center;
-  font-size: 60px;
-  margin: 0%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  transform: translate(list-style);
+  font-size: 36px;
+  padding: 20px 0;
 }
-.conteiner_ingreso{
+
+.container_ingreso {
   background: var(--fifty-color);
   color: var(--thirty-color);
-  max-width: 90%;
-  max-height: 90%;
-  margin: 5%;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center; 
+  margin: 20px;
+  max-width: 800px; 
+  margin-left: auto; 
+  margin-right: auto;
+ 
 }
+
 .formularioIngreso {
-  justify-content: center;
-  padding: 20px 20px;
   text-align: center;
 }
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .text {
-  text-align: center;
-  color: var(--sixty-color);
-  border: none;
-  padding: 0 10px;
-  margin: 0;
-  background: none;
-  text-decoration-line: underline;
+  width: 80%; 
   padding: 10px;
-  outline: 0;
+  margin: 10px 0; 
+  border: none;
+  background: none;
+  border-bottom: 1px solid var(--sixty-color);
+  outline: none;
 }
 
 .Enviar {
-  width: 50%;
+  width: 60%; 
   background-color: var(--sixty-color);
-  padding: 5px 50px;
+  padding: 10px;
   color: white;
-  font-size: 1em;
-  border: 0px;
-  margin: 20px;
-  padding-top: 10px;
+  font-size: 18px;
+  border: none;
+  margin: 20px 0;
   text-align: center;
   text-transform: uppercase;
 }
+
 .Enviar:hover,
-.Enviar:focus{
-  background: var(--eighty-color);
+.Enviar:focus {
+  background-color: var(--eighty-color);
   color: var(--sixty-color);
-  transition: background-color 1s ease-out;
-  
+  transition: background-color 0.5s ease;
 }
 
-
-.contraseña {
-  color: black;
-  padding: 10px 10px;
-  
+#olvidar-contraseña, #registro-enlace {
+  color: var(--thirty-color);
+  padding: 10px;
 }
 
 /*FIN FORMULARIO DE INGRESO*/
 
-/*INICIO REGISTRATION FORM*/
 
-.cuerpo{
-  max-width: 1170px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.5em;
-}
+/* Estilos para el formulario de registro */
 .tituloform {
   color: black;
   font-weight: bold;
   text-align: center;
-  font-size: 60px;
-  margin: 0%;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  transform: translate(list-style);
+  font-size: 36px;
+  padding: 20px 0;
 }
-.conteiner_registration {
+
+.container_registration {
   background: var(--fifty-color);
   color: var(--thirty-color);
-  max-width: 80%;
-  max-height: 80%;
-  margin: 10%;
+  max-width: 70%;
+  max-height: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5em;
+  margin-bottom: 20px;
+}
+
+.formulario-registro {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  }
+  grid-gap: 20px;
+}
 
-.celda{
+.celda {
   width: 100%;
-  padding: 0.7em;
+  padding: 10px;
+  margin: 0;
   border: none;
   background: none;
   border-bottom: 1px solid var(--sixty-color);
-  outline: 0;
-  margin: 0%;
+  outline: none;
 }
 
-.dato,
-.link,
-.button{
+.dato{
   width: 100%;
-  padding: 0.7em;
+  padding: 10px;
+  margin: 0;
   border: none;
   background: none;
-  outline: 0;
-  margin: 0%;
+  outline: none;
 }
-.formulario-registro{
-  margin:0%;
-  padding: 1em;
+
+.boton-container {
+  grid-column: 1 / span 2; 
+  margin-top: 0; 
 }
-.button {
+
+.boton-container {
+  grid-column: 1 / span 2; 
+  margin-top: 20px; 
+}
+
+.boton {
   width: 100%;
   background-color: var(--sixty-color);
-  padding: 5px 50px;
+  padding: 10px;
   color: white;
-  font-size: 1em;
-  border: 0px;
-  margin: 20px;
-  padding-top: 10px;
+  font-size: 18px;
+  border: none;
   text-align: center;
   text-transform: uppercase;
 }
-.button:hover,
-.button:focus{
-  background: var(--eighty-color);
+
+.boton:hover,
+.boton:focus {
+  background-color: var(--eighty-color);
   color: var(--sixty-color);
-  transition: background-color 1s ease-out;
-  
-}
-.link {
-  color: var(--thirty-color);
-  padding: 10px 10px;
+  transition: background-color 0.5s ease;
 }
 
-/*FIN REGISTRATION FORM*/
 
 /*MEDIA QUERY - RESPONSIVE* *** DEJAR SIEMPRE AL ULTIMO*/
 
