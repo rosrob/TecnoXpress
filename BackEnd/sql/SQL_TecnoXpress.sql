@@ -134,9 +134,9 @@ DEFAULT CHARACTER SET = utf8mb4;
 CREATE TABLE `carrito_compras` (
   `id_carrito_compras` INT NOT NULL AUTO_INCREMENT,
   `id_productos` INT NULL DEFAULT NULL,
-  `total` DOUBLE NULL DEFAULT NULL,
-  `nro_factura` INT NULL DEFAULT NULL,
   `id_usuarios` INT NOT NULL,
+  `Precio` DOUBLE NULL DEFAULT NULL,
+  `Cantidad` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id_carrito_compras`),
   CONSTRAINT `carrito_compras_ibfk_1`
     FOREIGN KEY (`id_productos`)
