@@ -19,4 +19,4 @@ Se presentarán las 3 carpetas solicitadas **(FrontEnd-BackEnd-Documentación)**
 ### En WIKI:
 Se han dejado plasmadas las **Ceremonias de Scrum y Documentaciones**
 
-### Link del Proyecto: https://rosrob.github.io/TecnoXpress/
+### Link del Proyecto: https://rosrob.github.io/TecnoXpress/FrontEnd
