@@ -90,23 +90,80 @@ class Producto:
         conexion.cerrar_base()
 
 
-    def modificar_producto():
+    def modificar_producto(self):
+        # Iniciamos la base de datos
+        conexion = BBDD.BaseDeDatos()
+        cursor = conexion.cursor()
+        
+        cursor.execute("SELECT id_productos, nombre FROM productos ")
+        resultado_productos = cursor.fetchall()
+
+        print("\n╔══════════════════════════════╗")
+        print("║       Lista de Productos       ║")
+        print("╚══════════════════════════════╝")
+
+        if resultado_productos is None or len(resultado_productos) == 0:
+            print("Actualmente no hay productos disponibles.")
+        else:
+            for producto in resultado_productos:
+                id_producto, nombre = producto
+                print(f'{id_producto}- {nombre}')
 
         print("\n╔══════════════════════════════╗")
         print("║    Modificar Producto          ║")
         print("╚══════════════════════════════╝")
-        id_productos = int(input(' Por favor, introduce el ID del Producto a Modificar: '))
-        for producto in producto:
-            if producto.id_productos == id_productos:
-                producto.nombre = input(' Coloque un nuevo nombre del Producto: ')
-                producto.descripcion = input('Coloque una descripción del producto: ')
-                producto.precio = float(input(' Indique el nuevo precio del producto (digitos): '))
-                producto.stock = int(input('Nuevo Stock del Producto (digitos): '))
-                producto.id_categoria_productos = int(input('Por favor introduce un nuevo id de la Categoría del Producto: '))
-                producto.url_imagen = input('Nueva URL de la Imagen del Producto: ')
-                print(f'Producto con ID {id_productos} modificado correctamente.')
-                return
-        print(f'No se encontró producto con ID {id_productos}, por favor liste nuevamente los productos actuales para modificar.')
+        id_productos = int(input(' Por favor, introduce la opcion del Producto a Modificar: '))
+
+        # Consulta SQL para seleccionar el producto
+        consulta_producto = "SELECT nombre, descripcion, precio, stock, id_categoria_productos, imagen_url FROM productos WHERE id_productos = %s"
+        valor_producto = (id_productos,)
+        cursor.execute(consulta_producto, valor_producto)
+        producto = cursor.fetchone()
+
+        if producto is not None:
+            nombre = input(' Coloque un nuevo nombre del Producto: ')
+            descripcion = input(' Coloque una nueva descripción del producto: ')
+            precio = float(input(' Indique el nuevo precio del producto (solo números): '))
+            stock = int(input(' Nuevo Stock del Producto (solo números): '))
+            while True :
+                print ("¿Que categoria es? \n 1- Mouses \n 2- Teclados \n 3- Monitores")
+                opcion = int(input (Decoradores.opcion))
+                if (opcion >= 1 and opcion <= 3):
+                    if opcion == 1:
+                        categoria = "mouses"
+                        break
+                    elif opcion == 2:
+                        categoria = "teclados"
+                        break
+                    elif opcion == 3 :
+                        categoria = "monitores"
+                        break
+                        
+                else:
+                    print(Decoradores.erroneo)
+                    
+            consulta_categoria = "SELECT id_categoria_productos FROM categoria_productos WHERE tipo = %s "
+            valor_categoria = (categoria,)
+            cursor.execute (consulta_categoria,valor_categoria)
+            resultado_categoria = cursor.fetchone ()
+            id_categoria_productos = resultado_categoria
+            url_imagen = input('Nueva URL de la Imagen del Producto: ')
+
+            # Consulta SQL para actualizar el producto
+            consulta_actualizar = "UPDATE productos SET nombre = %s, descripcion = %s, precio = %s, stock = %s, id_categoria_productos = %s, imagen_url = %s WHERE id_productos = %s"
+            valores_actualizar = (nombre, descripcion, precio, stock, id_categoria_productos[0], url_imagen, id_productos )
+            cursor.execute(consulta_actualizar, valores_actualizar)
+            conexion.confirmar_cambios()
+            print(f'El producto {producto[0]} modificado correctamente.')
+        else:
+            print(Decoradores.erroneo)
+        
+        # Confirmar los cambios en la base de datos
+        conexion.confirmar_cambios()
+        
+        # Cerrar la conexión a la base de datos
+        conexion.cerrar_base()
+        
 
     def borrar_producto():
 
