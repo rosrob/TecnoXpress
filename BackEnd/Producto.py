@@ -165,19 +165,32 @@ class Producto:
         conexion.cerrar_base()
         
 
-    def borrar_producto():
-
-
+    def borrar_producto(self):
         print("\n╔══════════════════════════════╗")
-        print("║       Borrar Producto          ║")
-        print("╚═══════════════════════════  ═══╝")
-        id_productos = int(input('ID del Producto a Eliminar: '))
-        for producto in producto:
-            if producto.id_productos == id_productos:
-                producto.remove(producto)
-                print(f'Producto con ID {id_productos} eliminado correctamente.')
-                return
-        print(f'No se encontró producto con ID {id_productos}.')
+    print("║       Borrar Producto          ║")
+    print("╚════════════════════════════════╝")
+    
+    # Iniciamos la base de datos
+    conexion = BBDD.BaseDeDatos()
+    cursor = conexion.cursor()
+
+    # Obtener el ID del producto 
+    id_producto = int(input('ID del Producto a Eliminar: '))
+
+    # Consulta SQL para eliminar el producto
+    consulta_eliminar = "DELETE FROM productos WHERE id_productos = %s"
+    valor_eliminar = (id_producto,)
+    cursor.execute(consulta_eliminar, valor_eliminar)
+    conexion.confirmar_cambios()
+
+    # Verificar si se eliminó el producto
+    if cursor.rowcount > 0:
+        print(f'Producto con ID {id_producto} eliminado correctamente.')
+    else:
+        print(f'No se encontró producto con ID {id_producto}.')
+
+    # Cierra la conexión a la base de datos
+    conexion.cerrar_base()
 
     def mostrar_menu():
         print('\n╔════════════════════════════════════════════╗')
