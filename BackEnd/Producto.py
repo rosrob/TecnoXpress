@@ -63,29 +63,40 @@ class Producto:
         # Cerrar la conexión a la base de datos
         conexion.cerrar_base()
         
-
         
         print(f' El producto "{nombre}" se ha agregado correctamente.')
 
-    def listar_productos():
 
+    def listar_productos(self):
+        # Iniciamos la base de datos
+        conexion = BBDD.BaseDeDatos()
+        cursor = conexion.cursor()
+
+        cursor.execute("SELECT id_productos, nombre, precio FROM productos ")
+        resultado_productos = cursor.fetchall()
 
         print("\n╔══════════════════════════════╗")
         print("║       Lista de Productos       ║")
         print("╚══════════════════════════════╝")
-        if not productos:
+
+        if resultado_productos is None or len(resultado_productos) == 0:
             print("Actualmente no hay productos disponibles.")
-        for producto in productos:
-            print(f'ID: {producto.id_productos}, Nombre: {producto.nombre}, Precio: {producto.precio}, Stock: {producto.stock}')
+        else:
+            for producto in resultado_productos:
+                id_producto, nombre, precio = producto
+                print(f'{id_producto}- {nombre}  $ {precio}')
+
+        # Cierra la conexión a la base de datos
+        conexion.cerrar_base()
+
 
     def modificar_producto():
-
 
         print("\n╔══════════════════════════════╗")
         print("║    Modificar Producto          ║")
         print("╚══════════════════════════════╝")
         id_productos = int(input(' Por favor, introduce el ID del Producto a Modificar: '))
-        for producto in productos:
+        for producto in producto:
             if producto.id_productos == id_productos:
                 producto.nombre = input(' Coloque un nuevo nombre del Producto: ')
                 producto.descripcion = input('Coloque una descripción del producto: ')
@@ -104,9 +115,9 @@ class Producto:
         print("║       Borrar Producto          ║")
         print("╚═══════════════════════════  ═══╝")
         id_productos = int(input('ID del Producto a Eliminar: '))
-        for producto in productos:
+        for producto in producto:
             if producto.id_productos == id_productos:
-                productos.remove(producto)
+                producto.remove(producto)
                 print(f'Producto con ID {id_productos} eliminado correctamente.')
                 return
         print(f'No se encontró producto con ID {id_productos}.')
