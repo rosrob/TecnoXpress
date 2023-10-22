@@ -2,6 +2,9 @@ import Decoradores
 from Usuario import Usuario
 import sys
 import datetime
+from BBDD import BaseDeDatos
+import configparser
+
 
 # Menu de ingreso
 def menu_inicial():
@@ -11,15 +14,12 @@ def menu_inicial():
                 if opcion == 1:
                     usuario = Usuario ()
                     username = usuario.inicio_usuario()
-                    if username [1] == False :
-                        username = username [0]
-                        menu_usuario (username)                                
+                    menu_usuario (username)                                
                     break
                 elif opcion == 2:
                     usuario = Usuario()  
                     username = usuario.cargar_usuario()
-                    if username:
-                        menu_usuario(username) 
+                    menu_usuario(username) 
                     break
 
                 elif opcion == 0:
@@ -31,42 +31,66 @@ def menu_inicial():
                 
 #Menu de usuario
 def menu_usuario (username):
+    
     while True:
+            print (Decoradores.menu_usuario)
             print("\nElija una opción :\n 1- Mis datos \n 2- Modificar datos \n 3- Ingresar datos de envio \n 4- Mostrar datos de envios \n 5- Comprar \n 6- Eliminar usuario \n 0- Salir de la Aplicación.\n")
             opcion = int(input(Decoradores.opcion))
             if (opcion >= 0 and opcion <= 6):
                 if opcion == 1:
                     usuario = Usuario ()
                     usuario.mostrar_usuario(username)
-                    menu_usuario (username)
-                    break
+                    while True:
+                        print ("0- Volver al menu de usuario")
+                        opcion = int(input(Decoradores.opcion))
+                        if opcion == 0:
+                            break
+                        print ("Ingrese 0 si quiere volver al menu de usuario")
+                    
                 elif opcion == 2:
                     usuario = Usuario() 
                     menu_actualizacion (username)
                     
-                    
                 elif opcion == 3:
                     usuario = Usuario ()
                     usuario.cargar_datos_envios(username)
+                    while True:
+                        print ("0- Volver al menu de usuario")
+                        opcion = int(input(Decoradores.opcion))
+                        if opcion == 0:
+                            break
+                        print ("Ingrese 0 si quiere volver al menu de usuario")
                     
                 elif opcion == 4:
                     usuario = Usuario ()
                     usuario.mostrar_datos_envios(username)
-                
+                    while True:
+                        print ("0- Volver al menu de usuario")
+                        opcion = int(input(Decoradores.opcion))
+                        if opcion == 0:
+                            break
+                        print ("Ingrese 0 si quiere volver al menu de usuario")
                 elif opcion == 5:
                     usuario = Usuario ()
                     usuario.cargar_datos_envios(username)
+                    
+                elif opcion == 6:
+                    usuario = Usuario ()
+                    usuario.eliminar_usuario(username)
+                    sys.exit()
 
                 elif opcion == 0:
-                    print(Decoradores.closer)
+                    print(Decoradores.cierre)
                     print(Decoradores.decorador)
                     break
             else:
                 print(Decoradores.erroneo)
 
 def menu_actualizacion (username):
+    print (Decoradores.decorador)
     print ("¿Que dato desea modificar?")
     print("\nElija el campo a modificar:\n 1- Usuario\n 2- Contraseña\n 3- Nombre\n 4- Apellido\n 5- Fecha de nacimiento \n 6- Numero telefonico \n 7- Email \n 8-  Modificar datos de envios \n 9- Ser administrador \n 0- Salir\n")
+    print (Decoradores.decorador)
     while True:
         opcion = int(input(Decoradores.opcion))
         if opcion >= 0 and opcion <= 9:
@@ -158,9 +182,12 @@ def modificarCampos(opcion, username):
             if admin == contraseña_admin:
                 usuario = Usuario() 
                 usuario.ser_administrador (username ,nuevo_valor)
+                print(Decoradores.correcto)
                 break
             else:
-                print ("Codigo incorrecto")
+                print (Decoradores.decorador)
+                print (Decoradores.erroneo)
+                print (Decoradores.decorador)
                 break 
                      
         
@@ -169,8 +196,14 @@ def modificarCampos(opcion, username):
             break
             
     
+#Instanciamos la base de datos 
+baseDeDatos = BaseDeDatos ()
+# Verifica si la base de datos ya existe
+if not baseDeDatos.base_de_datos_existe():
+    # Si la base de datos no existe, créala
+    baseDeDatos.crear_base_de_datos()
 
-print(Decoradores.header)
-
+#Corremos el menu del programa
+print(Decoradores.encabezado)
 print("\nElija una opción :\n 1- Soy usuario \n 2- No soy usuario, quiero registrarme \n 0- Salir de la Aplicación.\n")
 menu_inicial()        
