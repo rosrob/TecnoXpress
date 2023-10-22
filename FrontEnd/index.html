@@ -1,230 +1,209 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- google font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:ital@1&display=swap"
-        rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:ital,wght@0,100;0,400;1,100&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:ital,wght@0,100;0,400;1,100&display=swap"
+      rel="stylesheet"
+    />
     <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/4661576001.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/4661576001.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Inicio</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Javascript -->
+    <script src="jsElements/navMain.js"></script>
+    <script src="jsElements/footer.js"></script>
     <!-- logo de la empresa en la pestaña -->
     <link rel="shortcut icon" href="media/logo.png" />
-</head>
+  </head>
 
-<body>
+  <body>
+    <!-- Comienzo de header -->
     <header>
-        <!-- Comienzo de header -->
-    <section id="top-menu">
-        <nav class="navbar navbar-expand-sm ">
-            <div class="container-fluid justify-content-end">
-
-
-                <div class="btn-group ">
-                    <a class="btn btn-ligth nav-link btn-sm btn-link" href="registration_form.html"><img class="top-img" src="./media/registro.png" alt="imagen-registro"><span class="top-txt">Registro</span></a>
-                    <a class="btn btn-ligth nav-link btn-sm btn-link" href="form_ingreso.html"><img class="top-img" src="./media/login.png" alt="imagen-login"><span class="top-txt">Iniciar Sesión</span></a>
-                </div>
-            </div>
-        </nav>
-    </section>
-<section id="navegacion">
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark menu">
-            <div class="container-fluid justify-content-between">
-                <a  class="navbar-brand" href="index.html">
-              <img id="logo" src="./media/logo.png" alt="Logo TecnoXpress"><span class="texto-logo">TecnoXpress</span>
-            </a> 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="collapsibleNavbar">
-                    <ul class="navbar-nav alinear">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="nosotros.html">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contacto</a>
-                        </li>
-                        <form class="d-flex buscar-nav">
-                            <input class="form-control me-2 btn-sm" type="text" placeholder="Buscar">
-                            <img class="btn btn-secondary btn-sm top-img btn-buscar-nav" src="./media/search.png" alt="Buscar...">
-                        </form>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-</section>
-        <!-- Fin de header -->
+      <div id="containerNav"></div>
     </header>
-    
-    <main>
-        <section class="container">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="media/medioteclado.jpg" class="d-block w-100" alt="teclado negro">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="media/joysticks.jpg" class="d-block w-100" alt="dos joysticks">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="media/nvidiabanner.jpg" class="d-block w-100" alt="publicidad nvidia">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previo</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Siguiente</span>
-                </button>
-              </div>
-        </section> 
+    <!-- Fin de header -->
 
-        <!--productos-->
-        <section class="productos">
-            <section class="container containerHome">
-                <h2 class="titleSectionProductos">
-                  Potenciá tu experiencia con lo mejor en Tech y accesorios
-                </h2>
-                <div class="container productosNavCard">
-                  <div class="card" >
-                    <div class="imagen-prod">
-                    <img
-                      src="media/AllInOneApple_1.jpg"
-                      class="card-img-top imagen-prod"
-                      alt="monitor apple"
-                    />
-                  </div>
-                    <div class="card-body">
-                      <h5 class="card-title">PC Escritorio</h5>
-                      <p class="card-text">
-                        Descubre nuestra variedad de productos para PC de Escritorio, incluyendo componentes de alto rendimiento y accesorios especializados, perfectos tanto para juegos como para tareas profesionales.
-                      </p>
-                      <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
-                  </div>
-                  <div class="card" >
-                    <div class="imagen-prod">
-                    <img
-                      src="media/DellInspiron_1.webp"
-                      class="card-img-top "
-                      alt="notebook dell"
-                    />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Notebooks</h5>
-                      <p class="card-text">
-                        Explora nuestra selección de notebooks, que abarca desde portátiles ultrafinos y ligeros ideales para la movilidad hasta potentes estaciones de trabajo para tareas profesionales exigentes.
-                      </p>
-                      <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
-                  </div>
-                  <div class="card" >
-                    <div class="imagen-prod">
-                    <img
-                      src="media/RedragonGriffin_3.jpg"
-                      class="card-img-top "
-                    />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Mouses</h5>
-                      <p class="card-text">
-                        Explora nuestra variedad de mouses, desde ergonómicos para largas jornadas de trabajo hasta precisos para gaming, diseñados para mejorar tu experiencia informática y juego.
-                      </p>
-                      <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
-                  </div>
-                  <div class="card" >
-                    <div class="imagen-prod">
-                    <img
-                      src="media/TecladoNoganet_2.jpg"
-                      class="card-img-top"
-                      alt="caja teclado noganet"
-                    />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Teclados</h5>
-                      <p class="card-text">
-                        Encuentra en nuestro catálogo de teclados una amplia selección de opciones, desde teclados mecánicos para escribir eficientemente hasta teclados retroiluminados para una experiencia de juego inmersiva.
-                      </p>
-                      <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
-                  </div>
-                </div>
-              </section>
-        <!--productos-->     
-        
+    <main>
+      <section class="container">
+        <div
+          id="carouselExampleFade"
+          class="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="media/medioteclado.jpg"
+                class="d-block w-100"
+                alt="teclado negro"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="media/joysticks.jpg"
+                class="d-block w-100"
+                alt="dos joysticks"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="media/nvidiabanner.jpg"
+                class="d-block w-100"
+                alt="publicidad nvidia"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleFade"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previo</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleFade"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
+      </section>
+
+      <!--productos-->
+      <section class="productos">
+        <section class="container containerHome">
+          <h2 class="titleSectionProductos">
+            Potenciá tu experiencia con lo mejor en Tech y accesorios
+          </h2>
+          <div class="container productosNavCard">
+            <div class="card">
+              <div class="imagen-prod">
+                <img
+                  src="media/AllInOneApple_1.jpg"
+                  class="card-img-top imagen-prod"
+                  alt="monitor apple"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">PC Escritorio</h5>
+                <p class="card-text">
+                  Descubre nuestra variedad de productos para PC de Escritorio,
+                  incluyendo componentes de alto rendimiento y accesorios
+                  especializados, perfectos tanto para juegos como para tareas
+                  profesionales.
+                </p>
+                <a href="#" class="btn btn-primary">Ver más</a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="imagen-prod">
+                <img
+                  src="media/DellInspiron_1.webp"
+                  class="card-img-top"
+                  alt="notebook dell"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Notebooks</h5>
+                <p class="card-text">
+                  Explora nuestra selección de notebooks, que abarca desde
+                  portátiles ultrafinos y ligeros ideales para la movilidad
+                  hasta potentes estaciones de trabajo para tareas profesionales
+                  exigentes.
+                </p>
+                <a href="#" class="btn btn-primary">Ver más</a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="imagen-prod">
+                <img src="media/RedragonGriffin_3.jpg" class="card-img-top" />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Mouses</h5>
+                <p class="card-text">
+                  Explora nuestra variedad de mouses, desde ergonómicos para
+                  largas jornadas de trabajo hasta precisos para gaming,
+                  diseñados para mejorar tu experiencia informática y juego.
+                </p>
+                <a href="#" class="btn btn-primary">Ver más</a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="imagen-prod">
+                <img
+                  src="media/TecladoNoganet_2.jpg"
+                  class="card-img-top"
+                  alt="caja teclado noganet"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Teclados</h5>
+                <p class="card-text">
+                  Encuentra en nuestro catálogo de teclados una amplia selección
+                  de opciones, desde teclados mecánicos para escribir
+                  eficientemente hasta teclados retroiluminados para una
+                  experiencia de juego inmersiva.
+                </p>
+                <a href="#" class="btn btn-primary">Ver más</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <!--productos-->
+
+      <!--banner-->
+      <section class="banner">
+        <div class="cardBanner">
+          <a href="nosotros.html">
+            <img
+              src="media/bannerEmpresa.png"
+              class="cardImg"
+              alt="empresa gente notebooks"
+            />
+            <div class="cardTextContainer">
+              <h5 class="cardTitle">
+                LO MEJOR EN <span class="textColor">TECNOLOGIA</span> PARA TU
+                <span class="textColor">EMPRESA</span>
+              </h5>
+            </div>
+          </a>
+        </div>
+      </section>
     </main>
 
-    <footer class="PIEDEPAGINA">
-      <div class="grupo-1">
-          <div class="box">
-              <div class="logo">
-                  <img src="media/logo.png" alt="">
-              </div>
-          </div>
-          <div class="box">
-            <div class="info">
-                <h2>ATENCION AL CLIENTE</h2>
-                <p>0810-555-8894</p>
-                <p>consultas@tecnoxpress.com.ar</p>
-                <p> Lunes a viernes de 8 a 20hs.</p>
-                <p> Sabado de 8 a 14hs</p> 
-             </div>
-        </div>
-        
-        <div class="box">
-          <h2>SIGUENOS</h2>
-          <div class="redes">      
-            <a href="https://www.facebook.com/" target="_blank"><span class="fb"><i class="fa-brands fa-facebook-f"></i></i></span></a>
-            <a href="https://twitter.com/" target="_blank"><span class="tw"><i class="fa-brands fa-x-twitter"></i></i></span></a>
-            <a href="https://www.instagram.com/" target="_blank"><span class="insta"><i class="fa-brands fa-instagram"></i></i></span></a>
-            <a href="https://www.tiktok.com/" target="_blank"><span class="tk"><i class="fa-brands fa-tiktok"></i></span></a>  
-          </div>
-        </div>
-        <div class="box">
-          <h2>MEDIOS DE PAGO</h2>
-          <a href="https://www.visa.com/" target="_blank"><span class="vi"><i class="fa-brands fa-cc-visa"></i></span></a>
-          <a href="https://www.mastercard.com/" target="_blank"><span class="ms"><i class="fa-brands fa-cc-mastercard"></i></span></a>
-          <a href="https://www.americanexpress.com/" target="_blank"><span class="amx"><i class="fa-brands fa-cc-amex"></i></span></a>
-          <a href="https://www.paypal.com/" target="_blank"><span class="pay"><i class="fa-brands fa-cc-paypal"></i></span></a>  
-        <a href="https://academy.binance.com/" target="_blank"><span class="btc"><i class="fa-brands fa-btc"></i></span></a>
-        </div>
-        <div class="box">
-          <h2>CONTACTO</h2>
-          <a href="https://api.whatsapp.com/send?phone=[número de teléfono]" target="_blank"><span class="wsp"><i class="fa-brands fa-whatsapp"></i></span></a>
-          <a href="mailto:consultas@tecnoxpress.com.ar"><span class="mail"><i class="fa-sharp fa-solid fa-at"></i></span></a>
-        </div>
-                          
-      </div>
-      <div class="grupo-2">
-          <small>&copy; 2023 <b> TECNOXPRESS</b> - Todos los Derechos Reservados.</small>
-
-      </div>
-ffooter
-
-  </footer>
-     
-  
-
-</body>
+    <!-- Footer -->
+    <div id="containerFooter"></div>
+    <!-- Footer -->
+  </body>
 </html>
