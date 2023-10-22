@@ -30,27 +30,32 @@ class Producto:
         url_imagen = input('URL de la Imagen del Producto: ')
         # producto = Producto( nombre, descripcion, precio, stock, id_categoria_productos, url_imagen)
         
-        # Consulta SQL para insertar datos en la tabla "usuarios"
-        consulta_productos = "INSERT INTO productos (nombre, descripcion, imagen_url, precio, stock ) VALUES (%s, %s, %s, %s, %s)"
-        valores_productos = (nombre, descripcion, url_imagen, precio, stock)
-        cursor.execute(consulta_productos,valores_productos)
-        
-        
         while True :
             print ("¿Que categoria es? \n 1- Mouses \n 2- Teclado \n 3- Monitores")
             opcion = int(input (Decoradores.opcion))
             if (opcion >= 1 and opcion <= 3):
                 if opcion == 1:
                     categoria = "mouses"
+                    break
                 elif opcion == 2:
                     categoria = "teclado"
+                    break
                 elif opcion == 3 :
                     categoria = "monitores"
+                    break
                     
             else:
                 print(Decoradores.erroneo)
 
+        consulta_categoria = "SELECT id_categoria_productos FROM categoria_productos WHERE tipo = %s "
+        valor_categoria = (categoria,)
+        cursor.execute (consulta_categoria,valor_categoria)
+        resultado_categoria = cursor.fetchone ()
         
+        # Consulta SQL para insertar datos en la tabla "usuarios"
+        consulta_productos = "INSERT INTO productos (nombre, descripcion, imagen_url, precio, stock, id_categoria_productos ) VALUES (%s, %s, %s, %s, %s,%s)"
+        valores_productos = (nombre, descripcion, url_imagen, precio, stock, resultado_categoria [0])
+        cursor.execute(consulta_productos,valores_productos)
         
         # Confirmar los cambios en la base de datos
         conexion.confirmar_cambios()
