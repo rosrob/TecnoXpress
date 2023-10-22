@@ -1,73 +1,77 @@
-const formularioRegistro = document.querySelector(".formulario-contact");
-const nombre = document.querySelector('input[name="Nombre"]');
-const apellido = document.querySelector('input[name="Apellido"]');
-const DNI = document.querySelector('input[name="DNI"]');
-const fechaNacimiento = document.querySelector('input[name="fecha_de_nacimiento"]');
-const celular = document.querySelector('input[name="celular"]');
-const email = document.querySelector('input[name="Email"]');
-const contraseña = document.querySelector('input[name="contraseña"]');
-const confirmarContraseña = document.querySelector('input[name="confirmar_contraseña"]');
-const enviarButton = document.getElementById("enviar-button");
+const formularioRegistro = document.querySelector(".formulario-registro")
+const nombre = document.querySelector('input[name="nombre"]')
+const apellido = document.querySelector('input[name="apellido"]')
+const DNI = document.querySelector('input[name="DNI"]')
+const fechaNacimiento = document.querySelector('input[name="fecha_de_nacimiento"]')
+const celular = document.querySelector('input[name="celular"]')
+const email = document.querySelector('input[name="email"]')
+const contraseña = document.querySelector('input[name="contraseña"]')
+const confirmarContraseña = document.querySelector('input[name="confirmar_contraseña')
 
 formularioRegistro.addEventListener("submit", (event) => {
-  event.preventDefault();
-  validaCamposRegistro();
+  event.preventDefault()
+  validaCamposRegistro()
+});
+
+// Validación de DNI
+DNI.addEventListener("input", function () {
+  if (this.value.length > 8) {
+    this.value = this.value.slice(0, 8)
+  }
+});
+
+// Validación de celular
+celular.addEventListener("input", function () {
+  if (this.value.length > 10) {
+    this.value = this.value.slice(0, 10)
+  }
 });
 
 function validaCamposRegistro() {
-  const nombreValor = nombre.value.trim();
-  const apellidoValor = apellido.value.trim();
-  const DNIValor = DNI.value.trim();
-  const fechaNacimientoValor = fechaNacimiento.value;
-  const celularValor = celular.value.trim();
-  const emailValor = email.value.trim();
-  const contraseñaValor = contraseña.value;
-  const confirmarContraseñaValor = confirmarContraseña.value;
+  const nombreValor = nombre.value.trim()
+  const apellidoValor = apellido.value.trim()
+  const DNIValor = DNI.value.trim()
+  const fechaNacimientoValor = fechaNacimiento.value
+  const celularValor = celular.value.trim()
+  const emailValor = email.value.trim()
+  const contraseñaValor = contraseña.value
+  const confirmarContraseñaValor = confirmarContraseña.value
 
-  if (nombreValor.length < 4 || nombreValor.length > 20) {
-    alert("El campo Nombre debe tener entre 4 y 20 caracteres.");
-    return;
+  if (nombreValor.length < 4 || nombreValor.length > 15) {
+    alert("El campo Nombre debe tener entre 4 y 15 caracteres.")
+    return
   }
 
-  if (apellidoValor === "") {
-    alert("El campo Apellido es obligatorio.");
-    return;
+  if (apellidoValor.length < 4 || apellidoValor.length > 15) {
+    alert("El campo Apellido debe tener entre 4 y 15 caracteres.")
+    return
   }
 
-  if (DNIValor === "" || DNIValor.length !== 8 || !/^\d+$/.test(DNIValor)) {
+  if (DNIValor.length !== 8 ) {
     alert("El campo DNI debe contener exactamente 8 números.");
     return;
   }
 
-  if (fechaNacimientoValor === "") {
-    alert("Seleccione una Fecha de Nacimiento válida.");
-    return;
+  if (!fechaNacimientoValor) {
+    alert("Debe seleccionar una Fecha de Nacimiento.")
+    return
   }
 
-  if (celularValor === "" || !/^\d{10}$/.test(celularValor)) {
-    alert("El campo Celular debe contener 10 números.");
-    return;
+  if (celularValor.length !== 10 || !/^\d{10}$/.test(celularValor)) {
+    alert("El campo Celular debe contener exactamente 10 números.")
+    return
   }
 
-  if (!isValidEmail(emailValor)) {
-    alert("Ingrese una dirección de correo electrónico válida.");
-    return;
+  if (contraseñaValor.length < 4) {
+    alert("La contraseña debe tener al menos 4 caracteres.")
+    return
   }
 
-  if (contraseñaValor === "" || contraseñaValor !== confirmarContraseñaValor) {
-    alert("Las contraseñas no coinciden o son inválidas.");
-    return;
+  if (contraseñaValor !== confirmarContraseñaValor) {
+    alert("Las contraseñas no coinciden.")
+    return
   }
 
-  // Si llegamos aquí, el formulario se completó correctamente
-  // Habilitar el botón de envío
-  enviarButton.removeAttribute("disabled");
-
-  // Mostrar un mensaje de éxito
-  alert("El formulario se ha enviado con éxito.");
+  window.location.href = "index.html";
 }
 
-function isValidEmail(email) {
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  return emailPattern.test(email);
-}
