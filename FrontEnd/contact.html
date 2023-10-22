@@ -73,51 +73,49 @@
   <!-- Fin de header -->
 </header>
       
-    <section>
-    <div class="conteiner_contact">
-      <div class=" title_contact">
-        <h1 class="logo_contact">Centro de ayuda</h1>
-        <p>Encontrá la información que necesitás para comprar online, métodos de pago, garantías, envíos, seguimiento de compras y más.</p>
+<section>
+  <div class="conteiner_contact" action="">
+    <div class="title_contact">
+      <h1 class="logo_contact">Centro de ayuda</h1>
+      <p>Encontrá la información que necesitás para comprar online, métodos de pago, garantías, envíos, seguimiento de compras y más.</p>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contac-form">
+        <h3>Dejanos tus datos</h3>
+        <form class="formulario-contact" action="">
+          <p>
+            <label>Nombre</label>
+            <input type="text" name="Nombre" id="Nombre" minlength="4" maxlength="15" required>
+          </p>
+          <p>
+            <label>Email</label>
+            <input type="email" name="Email" id="Email" required>
+          </p>
+          <p>
+            <label>Teléfono</label>
+            <input type="number" name="Telefono" id="Telefono" minlength="10" maxlength="10" required>
+          </p>
+          <p>
+            <label>Asunto</label>
+            <input type="text" name="Asunto" id="Asunto" minlength="4" max="20" required>
+          </p>
+          <p class="block">
+            <label>Mensaje</label>
+            <textarea name="Mensaje" id="Mensaje" rows="6" minlength="10" maxlength="200" required></textarea>
+          </p>
+          <p class="block">
+            <button class="button" type="button" id="enviar-button">
+              <span class="send">
+                <i class="fa-solid fa-paper-plane icon_send"></i>
+              </span>
+              <span class="text_send">Enviar</span>
+            </button>
+          </p>
+          <p id="mensaje-enviado"></p>
+          <p id="mensaje-error" class="mensaje-error"></p>
+        </form>
       </div>
-        <div class="contact-wrapper">
-            <div class="contac-form">
-                <h3>Dejanos tus datos</h3>
-                <form class=formulario-contact action="">
-                    <p>
-                        <label>Nombre</label>
-                        <input type="text" name="Nombre" id="Nombre" required>
-                    </p>
-                    <p>
-                        <label>Email</label>
-                        <input type="email" name="Email" id="Email" required>
-                    </p>
-                    <p>
-                        <label>Telefono</label>
-                        <input type="tel" name="Telefono" id="Telefono" pattern=" [0-9] {10}">
-                    </p>
-                    <p>
-                        <label>Asunto</label>
-                        <input type="text" name="Asunto" id="Asunto">
-                    </p>
-                    <p class="block">
-                        <label>Mensaje</label>
-                        <textarea name="Mensaje" id="Mensaje" rows="3" required></textarea>    
-                    </p>
-                    <p class="block ">
-                        <button class="button" type="submit">
-                            <span class="send">
-                                <i class="fa-solid fa-paper-plane icon_send "></i>
-                            </span> 
-                            <span class="text_send"> Enviar </span>
-                            <span class="check">
-                                <i class="fa-solid fa-check icon"></i>
-                            </span>
-                        </button>
-                    </p>
-
-                </form>
-                
-            </div>
+              <!-- Comienzo del footer -->
             <div class="contact-info">
               <h4>Mas Info</h4>
               <span class="maps">

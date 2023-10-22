@@ -72,27 +72,26 @@
 </section>
   <!-- Fin de header -->
 </header>
-<h2 class="tituloform">Formulario de Registro</h2> 
-
+<h2 class="tituloform">Formulario de Registro</h2>
 <main class="cuerpo">
   <div class="container_registration">
-    <form class="formulario-registro" id="formulario-registro" action="" method="post">
+    <form class="formulario-registro" id="formulario-registro" >
       <div class="contenedor-grid-izq">
         <p>
           <label class="dato" for="nombre">Nombre</label>
-          <input class="celda" type="text" name="nombre" id="nombre" minlength="2" maxlength="30" required>
+          <input class="celda" type="text" name="nombre" id="nombre" minlength="4" maxlength="20" pattern="[A-Za-z]+" required>
         </p>
         <p>
           <label class="dato" for="DNI">DNI</label>
-          <input class="celda" type="text" name="DNI" id="DNI" minlength="8" maxlength="8" required>
+          <input class="celda" type="number" name="DNI" id="DNI" minlength="8" maxlength="8" pattern=" [0-9] {10}" required>
         </p>
         <p>
           <label class="dato" for="Celular">Celular</label>
-          <input class="celda" type="tel" name="celular" id="Celular" required>
+          <input class="celda" type="number" name="celular" id="Celular" minlength="10" maxlength="10"  pattern=" [0-9] {10}" required>
         </p>
         <p>
           <label class="dato" for="Contraseña">Contraseña</label>
-          <input class="celda" type="password" name="contraseña" id="Contraseña" required>
+          <input class="celda" type="password" name="contraseña" id="Contraseña" minlength="4" maxlength="15" required>
         </p>
         <p class="link">Estoy de acuerdo con los <a href="#" id="link">Términos y Condiciones</a></p>
         <p>
@@ -102,28 +101,27 @@
         </p>
       </div>
       <div class="contenedor-grid-der">
-        <form action="" method="post">
-          <p>
-            <label class="dato" for="apellido">Apellido</label>
-            <input class="celda" type="text" name="apellido" id="apellido" minlength="2" maxlength="30" required>
-          </p>
-          <p>
-            <label class="dato" for="Fecha de nacimiento">Fecha de Nacimiento</label>
-            <input class="celda" type="date" name="fecha_de_nacimiento" value="" min="1900-01-01" max="2018-12-31" id="Fecha_de_nacimiento">
-          </p>
-          <p>
-            <label class="dato" for="Email">Email</label>
-            <input class="celda" type="email" name="email" id="Email" required>
-          </p>
-          <p>
-            <label class="dato" for="Confirmar contraseña">Confirmar contraseña</label>
-            <input class="celda" type="password" name="confirmar_contraseña" id="Confirmar_contraseña" required>
-          </p>
-        </div>
-        </form>
-      </form>
-    </div>
-  </main>
+        <p>
+          <label class="dato" for="apellido">Apellido</label>
+          <input class="celda" type="text" name="apellido" id="apellido" minlength="4" maxlength="20" pattern="[A-Za-z]+" required>
+        </p>
+        <p>
+          <label class="dato" for="FechaNacimiento">Fecha de Nacimiento</label>
+          <input class="celda" type="date" name="fecha_de_nacimiento" min="1900-01-01" max="2018-12-31" id="FechaNacimiento">
+        </p>
+        <p>
+          <label class="dato" for="Email">Email</label>
+          <input class="celda" type="email" name="email" id="Email" required>
+        </p>
+        <p>
+          <label class="dato" for="ConfirmarContraseña">Confirmar contraseña</label>
+          <input class="celda" type="password" name="confirmar_contraseña" id="ConfirmarContraseña" required>
+        </p>
+      </div>
+    </form>
+  </div>
+</main>
+  <!-- Comienzo del footer -->
     <footer class="pieDePagina">
       <div class="grupo-1">
           <div class="box">

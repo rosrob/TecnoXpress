@@ -1,39 +1,78 @@
-const formularioContact = document.querySelector(".formulario-contact");
-const Nombre = document.getElementById("Nombre");
-const Email = document.getElementById("Email");
-const Telefono = document.getElementById("Telefono");
-const Asunto = document.getElementById("Asunto");
-const Mensaje = document.getElementById("Mensaje");
-const mensajeEnviado = document.getElementById("mensaje-enviado"); // Agrega un elemento con el id "mensaje-enviado" en tu HTML
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".formulario-contact")
+  const enviarButton = document.getElementById("enviar-button")
 
-formularioContact.addEventListener("submit", (event) => {
-  event.preventDefault();
-  validaCamposContacto();
-});
+  // Event listener for the form submission
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); 
 
-function validaCamposContacto() {
-  const nombreValor = Nombre.value.trim();
-  const emailValor = Email.value.trim();
-  const telefonoValor = Telefono.value.trim();
-  const asuntoValor = Asunto.value.trim();
-  const mensajeValor = Mensaje.value.trim();
+    const nombre = document.getElementById("Nombre").value
+    const email = document.getElementById("Email").value
+    const telefono = document.getElementById("Telefono").value
+    const asunto = document.getElementById("Asunto").value
+    const mensaje = document.getElementById("Mensaje").value
 
-  if (nombreValor === "" || emailValor === "" || telefonoValor === "" || asuntoValor === "" || mensajeValor === "") {
-    alert("Todos los campos son obligatorios.");
-    return;
-  }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-  if (!validarEmail(emailValor)) {
-    alert("El correo electrónico ingresado no es válido.");
-    return;
-  }
+    let formIsValid = true
 
-  mensajeEnviado.textContent = "¡Su mensaje ha sido enviado!"
-  mensajeEnviado.style.color = "green"
+    if (nombre.length < 4 || nombre.length > 15) {
+      alert("Nombre debe tener entre 4 y 15 caracteres.")
+      formIsValid = false
+    }
 
-}
+    // Validate the 'email' field
+    if (!email.match(emailRegex)) {
+      alert("Email no es válido.")
+      formIsValid = false;
+    }
 
-function validarEmail(email) {
-  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  return regex.test(email);
-  }
+    // Validate the 'telefono' field
+    if (telefono.length !== 10 || isNaN(telefono)) {
+      alert("Teléfono debe tener exactamente 10 dígitos numéricos.")
+      formIsValid = false
+    }
+
+    // Validate the 'asunto' field
+    if (asunto.length < 5 || asunto.length > 20) {
+      alert("Asunto debe tener entre 5 y 20 caracteres.")
+      formIsValid = false;
+    }
+
+    // Validate the 'mensaje' field
+    if (mensaje.length < 5 || mensaje.length > 200) {
+      alert("Mensaje debe tener entre 5 y 200 caracteres.")
+      formIsValid = false
+    }
+
+    if (formIsValid) {
+      alert("El mensaje ha sido enviado con éxito.")
+      form.reset()
+    } else {
+      alert("No se puede enviar el formulario debido a errores.")
+    }
+  });
+
+  enviarButton.disabled = true
+
+  form.addEventListener("input", function () {
+    const nombre = document.getElementById("Nombre").value
+    const email = document.getElementById("Email").value
+    const telefono = document.getElementById("Telefono").value
+    const asunto = document.getElementById("Asunto").value
+    const mensaje = document.getElementById("Mensaje").value
+
+    const formIsValid =
+      nombre.length >= 4 &&
+      nombre.length <= 15 &&
+      email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/) &&
+      telefono.length === 10 &&
+      !isNaN(telefono) &&
+      asunto.length >= 5 &&
+      asunto.length <= 20 &&
+      mensaje.length >= 5 &&
+      mensaje.length <= 200;
+
+    enviarButton.disabled = !formIsValid
+  })
+})

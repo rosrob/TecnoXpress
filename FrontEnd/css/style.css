@@ -259,6 +259,11 @@
 .contac-form .button:focus .text_send {
   opacity: 0;
 }
+.error {
+  color: red;
+  padding: 0.5em;
+  display: none; /* Inicialmente ocultos */
+}
 
 /* INFORMACION DE CONTACTO */
 
