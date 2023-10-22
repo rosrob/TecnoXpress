@@ -32,7 +32,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/styleformulario.css" />
     <!-- Javascript -->
     <script src="jsElements/navMain.js"></script>
     <script src="jsElements/footer.js"></script>
@@ -47,6 +47,7 @@
     </header>
     <!-- Fin de header -->
 
+<<<<<<< HEAD
     <div class="fondo">
       <main>
         <section>
@@ -132,13 +133,120 @@
                 <a href="form_ingreso.html">¿Ya tengo Cuenta?</a>
               </p>
             </form>
+=======
+
+          <div class="btn-group ">
+              <a class="btn btn-ligth nav-link btn-sm btn-link" href="registration_form.html"><img class="top-img" src="./media/registro.png" alt="imagen-registro"><span class="top-txt">Registro</span></a>
+              <a class="btn btn-ligth nav-link btn-sm btn-link" href="form_ingreso.html"><img class="top-img" src="./media/login.png" alt="imagen-login"><span class="top-txt">Iniciar Sesión</span></a>
+          </div>
+      </div>
+  </nav>
+</section>
+<section id="navegacion">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark menu">
+      <div class="container-fluid justify-content-between">
+          <a  class="navbar-brand" href="index.html">
+        <img id="logo" src="./media/logo.png" alt="Logo TecnoXpress"><span class="texto-logo">TecnoXpress</span>
+      </a> 
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="collapsibleNavbar">
+              <ul class="navbar-nav alinear">
+                  <li class="nav-item">
+                      <a class="nav-link active" href="index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="nosotros.html">Nosotros</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="contact.html">Contacto</a>
+                  </li>
+                  <form class="d-flex buscar-nav">
+                      <input class="form-control me-2 btn-sm" type="text" placeholder="Buscar">
+                      <img class="btn btn-secondary btn-sm top-img btn-buscar-nav" src="./media/search.png" alt="Buscar...">
+                  </form>
+
+              </ul>
+          </div>
+      </div>
+  </nav>
+</section>
+  <!-- Fin de header -->
+</header>
+<h2 class="tituloform">Formulario de Registro</h2>
+<main class="cuerpo">
+  <div class="container_registration">
+    <form class="formulario-registro" id="formulario-registro">
+        <div class="columna-izquierda">
+          <p>
+            <label class="dato" for="nombre">Nombre</label>
+            <input class="celda" type="text" name="nombre" id="nombre" minlength="4" maxlength="20" pattern="[A-Za-z]+" required>
+          </p>
+          <p>
+            <label class="dato" for="DNI">DNI</label>
+            <input class="celda" type="number" name="DNI" id="DNI" minlength="8" maxlength="8" pattern="[0-9]{8}" required>
+          </p>
+        <p>
+          <label class="dato" for="Celular">Celular</label>
+          <input class="celda" type="number" name="celular" id="Celular" minlength="10" maxlength="10" pattern="[0-9]{10}" required>
+        </p>
+        <p>
+          <label class="dato" for="Contraseña">Contraseña</label>
+          <input class="celda" type="password" name="contraseña" id="Contraseña" minlength="4" maxlength="15" required>
+        </p>
+      </div>
+      <div class="columna-derecha">
+        <p>
+          <label class="dato" for="apellido">Apellido</label>
+          <input class="celda" type="text" name="apellido" id="apellido" minlength="4" maxlength="20" pattern="[A-Za-z]+" required>
+        </p>
+        <p>
+          <label class="dato" for="FechaNacimiento">Fecha de Nacimiento</label>
+          <input class="celda" type="date" name="fecha_de_nacimiento" min="1900-01-01" max="2018-12-31" id="FechaNacimiento" required>
+        </p>
+        <p>
+          <label class="dato" for="Email">Email</label>
+          <input class="celda" type="email" name="email" id="Email" required>
+        </p>
+        <p>
+          <label class="dato" for="ConfirmarContraseña">Confirmar contraseña</label>
+          <input class="celda" type="password" name="confirmar_contraseña" id="ConfirmarContraseña" required>
+        </p>
+     </div>
+     <p class="boton-container"> 
+      <button class="boton" type="submit">
+        <span>Registrar</span>
+      </button>
+    </p>
+    </div>
+  </form>
+</div>
+</main>
+  <!-- Comienzo del footer -->
+    <footer class="pieDePagina">
+      <div class="grupo-1">
+          <div class="box">
+              <div class="logo">
+                  <img src="media/logo.png" alt="">
+              </div>
+>>>>>>> caro2
           </div>
         </section>
       </main>
 
+<<<<<<< HEAD
       <!-- Footer -->
       <div id="containerFooter"></div>
       <!-- Footer -->
     </div>
   </body>
+=======
+      </div>
+  </footer> 
+</div>
+<script src="form-registro.js"></script>
+</body>
+>>>>>>> caro2
 </html>
