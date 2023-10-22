@@ -238,6 +238,9 @@ display:flex;
 .carrito-acciones-derecha {
     display: flex;
 }
+img.carrito-producto-imagen.img-fluid{
+    max-width:100px;
+}
 .carrito-acciones-total {
     display: flex;
     background-color: #f4f2f2;

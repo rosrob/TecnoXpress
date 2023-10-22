@@ -33,35 +33,39 @@ document.addEventListener("DOMContentLoaded", function footerElement() {
               </h6>
             </div>
 
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <div class="tarjetas-pago col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+             <div class="tit-pm">
               <h6 class="text-uppercase fw-bold mb-4">Medios de pagos</h6>
+             </div>
+             <div class="tarjetas-pm">
               <p class="payMedia">
-                <a href="https://www.visa.com/" target="_blank"
+                <a href="https://www.visa.com/" class="mi-boton-tt" title="Visa" target="_blank"
                   ><span class="vi"><i class="fa-brands fa-cc-visa"></i></span
                 ></a>
               </p>
               <p class="payMedia">
-                <a href="https://www.mastercard.com/" target="_blank"
+                <a href="https://www.mastercard.com/" class="mi-boton-tt"  title="Master Card" target="_blank"
                   ><span class="ms"
                     ><i class="fa-brands fa-cc-mastercard"></i></span
                 ></a>
               </p>
               <p class="payMedia">
-                <a href="https://www.americanexpress.com/" target="_blank"
+                <a href="https://www.americanexpress.com/" class="mi-boton-tt"  title="American Express" target="_blank"
                   ><span class="amx"><i class="fa-brands fa-cc-amex"></i></span
                 ></a>
               </p>
               <p class="payMedia">
-                <a href="https://www.paypal.com/" target="_blank"
+                <a href="https://www.paypal.com/" class="mi-boton-tt"  title="Paypal" target="_blank"
                   ><span class="pay"
                     ><i class="fa-brands fa-cc-paypal"></i></span
                 ></a>
               </p>
               <p class="payMedia">
-                <a href="https://academy.binance.com/" target="_blank"
+                <a href="https://academy.binance.com/ mi-boton-tt"  title="Binance" target="_blank"
                   ><span class="btc"><i class="fa-brands fa-btc"></i></span
                 ></a>
               </p>
+              </div>
             </div>
 
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
@@ -85,8 +89,7 @@ document.addEventListener("DOMContentLoaded", function footerElement() {
       <div class="text-center p-4 copyRights">
         <small
           >&copy; 2023 <b> TECNOXPRESS</b> - Todos los Derechos
-          Reservados.</small
-        >
+          Reservados.</small>
       </div>
     </footer>
   `;
