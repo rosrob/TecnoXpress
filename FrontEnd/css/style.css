@@ -565,6 +565,23 @@ a:hover {
 
 /*FIN REGISTRATION FORM*/
 
+
+/*CHECKOUT*/
+
+#resumenPedido{
+  background-color: #f4f2f2;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.col-md-8{
+  
+  background-color: #fff;
+  box-shadow: -3px 8px 20px -px rgba(168,165,168,1);
+  
+}
+/*FIN CHECKOUT*/
+
 /*MEDIA QUERY - RESPONSIVE* *** DEJAR SIEMPRE AL ULTIMO*/
 
 @media screen and (max-width: 800px) {

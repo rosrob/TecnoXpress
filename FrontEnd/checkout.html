@@ -22,7 +22,8 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/productos.css">
-    <link rel="stylesheet" href="css/checkout.css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styleformulario.css"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <!-- logo de la empresa en la pestaña -->
     <link rel="shortcut icon" href="media/logo.png" />
 </head>
@@ -85,7 +86,7 @@
         </p>
         </div>
         <div class="row">
-            <div class="col-md-4 order md-2 mb-4">
+            <div class="col-md-4 order md-2 mb-4" id="resumenPedido">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-muted">Resumen del pedido</span>
                 </h4>
@@ -145,8 +146,8 @@
                 <form class="needs-validation" novalidate>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Maria" required>
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control is-invalid" id="nombre" placeholder="Maria" value=""minlength="2" maxlength="50" required>
                             <div class="invalid-feedback">
                                 Nombre es un campo obligatorio.
                             </div>
@@ -172,8 +173,8 @@
                         </div>
                     </div>
                     <div class="mb-3">
+                        <input type="email" class="form-control" id="email" placeholder="mariagarcia@gmail.com" pattern="[a-z 0-9._%-]+@[a-z 0-9.-]+\.[a-z]{2,}$" required aria-required="true">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="mariagarcia@gmail.com">
                         <div class="invalid-feedback">
                             Ingrese su email para comunicarnos para avisarle que su pedido está por llegar.
                         </div>
@@ -652,7 +653,7 @@
                                     Seleccione su provincia.
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-4 mb-3" id="pais">
                                 <label for="pais">Pais</label>
                                 <select class="custom-select d-block w-100" id="pais"required>
                                     <option value="argentina">Argentina</option>
@@ -710,7 +711,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="tcname">Nombre en la Tarjeta de Crédito</label>
-                            <input type="text" class="form-control" id="tcname" placeholder="su nombre como figura en la tarjeta" required>
+                            <input type="text" class="form-control" id="tcname" placeholder="su nombre como figura en la tarjeta" required/>
                             <div class="invalid-feedback">
                                 Ingrese su nombre como figura en su tarjeta.
                             </div>
@@ -739,25 +740,26 @@
                             </div>
                         </div>
                     </div>
-										<hr class="mb-4">
-										<div class="super-card_actions actionButtons">
-											<a class="boton_hacia-atras" href="/FrontEnd/carrito.html">Cancelar</a>
-                    
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" href="">Confirmar pedido</button>
-										</div>
+                    <hr class="mb-4">
+                    <div class="super-card_actions actionButtons">
+                        <a class="boton_hacia-atras" href="/FrontEnd/carrito.html">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Confirmar pedido</button>
+					</div>
                 </form>
             </div>
         </div>
     </div>
-    <footer class="my-5 pt-5 text-muted text-center-small">
-        <img src="./media/logo.png" alt="Logo de TecnoXpress" width="60 px" height="60 px">
-            <p class="mb-1">&copy; 2023 By TecnoXpress todos los Derechos Reservados. </p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacidad</a></li>
-                <li class="list-inline-item"><a href="#">Términos y condiciones</a></li>
-                <li class="list-inline-item"><a href="#">Soporte</a></li>
-                <li class="list-inline-item"><a href="#">Inicio</a></li>
-            </ul>
+
+    <!-- Footer -->
+    <div id="containerFooter"></div>
+    <!-- Footer -->
+    <!-- Javascript -->
+    <script src="jsElements/navMain.js"></script>
+    <script src="jsElements/footer.js"></script>
+    <script src="./js_carrito/productos.js"></script>  
+    <script src="./js_carrito/carrito.js"></script>  
+    <script src="./js_carrito/main.js"></script>
+  <!-- Footer -->
         </footer>
     
     </div>
