@@ -1,9 +1,10 @@
 import Decoradores
 from Usuario import Usuario
+from Producto import Producto
 import sys
 import datetime
 from BBDD import BaseDeDatos
-import configparser
+
 
 
 # Menu de ingreso
@@ -34,7 +35,7 @@ def menu_usuario (username):
     
     while True:
             print (Decoradores.menu_usuario)
-            print("\nElija una opción :\n 1- Mis datos \n 2- Modificar datos \n 3- Ingresar datos de envio \n 4- Mostrar datos de envios \n 5- Comprar \n 6- Eliminar usuario \n 0- Salir de la Aplicación.\n")
+            print("\nElija una opción :\n 1- Mis datos \n 2- Modificar datos \n 3- Ingresar datos de envio \n 4- Mostrar datos de envios \n 5- Comprar \n 6- Ver productos \n 7- Eliminar usuario \n 0- Salir de la Aplicación.\n")
             opcion = int(input(Decoradores.opcion))
             if (opcion >= 0 and opcion <= 6):
                 if opcion == 1:
@@ -75,6 +76,9 @@ def menu_usuario (username):
                     usuario.cargar_datos_envios(username)
                     
                 elif opcion == 6:
+                    menu_productos (username)
+                    
+                elif opcion == 7:
                     usuario = Usuario ()
                     usuario.eliminar_usuario(username)
                     sys.exit()
@@ -194,7 +198,64 @@ def modificarCampos(opcion, username):
         elif opcion == 0:
             print (Decoradores.decorador)
             break
+        
+def menu_productos(username):
+        usuario = Usuario() 
+        admin = usuario.es_administrador (username)
+        if admin is True:
+            while True:
+                print('╔═══════════════════════════════════════════╗')
+                print('║            Menú de productos              ║')
+                print('╠═══════════════════════════════════════════╣')
+                print('║ 1. Agregar un nuevo producto              ║')
+                print('║ 2. Listar todos los productos             ║')
+                print('║ 3. Modificar producto                     ║')
+                print('║ 4. Borrar Producto                        ║')
+                print('║ 0. Volver                                 ║')
+                print('╚═══════════════════════════════════════════╝')
+                opcion = int(input(Decoradores.opcion)) 
+                if opcion >= 0 and opcion <= 4:
+                    if opcion == 1:
+                        productos = Producto ()
+                        productos.agregar_producto ()  
+                        
+                    elif opcion == 2:
+                        productos = Producto ()
+                        productos.listar_productos ()
+                        
+                    elif opcion == 3 :
+                        productos = Producto ()
+                        productos.modificar_producto ()
+                       
+                    elif opcion == 4 :
+                        productos = Producto()
+                        productos.borrar_producto ()
+                        
+                    elif opcion == 0 :
+                        return
+                else:
+                    print (Decoradores.erroneo)
+        else:
+            while True:
+                print('╔═══════════════════════════════════════════╗')
+                print('║            Menú de productos              ║')
+                print('╠═══════════════════════════════════════════╣')
+                print('║ 1. Listar todos los productos             ║')
+                print('║ 0. Volver                                 ║')
+                print('╚═══════════════════════════════════════════╝')
+                opcion = int(input(Decoradores.opcion)) 
+                if opcion == 0 or opcion == 1:
+                    if opcion == 1:
+                        productos = Producto ()
+                        productos.listar_productos ()
+                        
+                    elif opcion == 0 :
+                        return
+                
+                else:
+                    print (Decoradores.erroneo)
             
+              
     
 #Instanciamos la base de datos 
 baseDeDatos = BaseDeDatos ()

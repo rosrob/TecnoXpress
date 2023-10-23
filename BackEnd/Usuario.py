@@ -389,7 +389,7 @@ class Usuario:
         resultado_provincia = cursor.fetchone()
         
         #Establecemos la relacion entre el usuario y el codigo postal
-        consulta = "INSERT INTO envios (id_usuarios, id_codigo_postal) VALUES (%s, %s)"
+        consulta = "UPDATE envios SET id_usuarios = %s , id_codigo_postal = %s"
         valores = (resultado_direccion [1],resultado_codigo_postal[3])
         cursor.execute(consulta,valores)
         
@@ -480,6 +480,31 @@ class Usuario:
         # Cerrar la conexión a la base de datos
         conexion.cerrar_base()
                           
+    def es_administrador(self, username):
+        # Iniciamos la base de datos
+        conexion = BBDD.BaseDeDatos()
+        cursor = conexion.cursor()
+        
+        consulta_usuario = "SELECT id_usuarios FROM usuarios WHERE username = %s"
+        cursor.execute(consulta_usuario, (username,))
+        resultado_usuario = cursor.fetchone()
+        
+        consulta_roles = "SELECT id_roles FROM usuario_roles WHERE id_usuarios = %s"
+        cursor.execute(consulta_roles, (resultado_usuario[0],))
+        resultado_roles = cursor.fetchone()
+        
+        consulta_rol = "SELECT rol FROM roles WHERE id_roles = %s"
+        cursor.execute (consulta_rol, (resultado_roles[0],))
+        resultado_rol = cursor.fetchone ()
+        
+        # Cerrar la conexión a la base de datos
+        conexion.cerrar_base()
+                          
+        
+        if resultado_rol is not None and resultado_rol[0] == 'administrador':
+            
+            return True
+        return False
     
     def inicio_usuario (self):
         self.contador = 0

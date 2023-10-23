@@ -51,6 +51,7 @@ class Producto:
         valor_categoria = (categoria,)
         cursor.execute (consulta_categoria,valor_categoria)
         resultado_categoria = cursor.fetchone ()
+        cursor.fetchall()
         
         # Consulta SQL para insertar datos en la tabla "usuarios"
         consulta_productos = "INSERT INTO productos (nombre, descripcion, imagen_url, precio, stock, id_categoria_productos ) VALUES (%s, %s, %s, %s, %s,%s)"
@@ -119,6 +120,7 @@ class Producto:
         valor_producto = (id_productos,)
         cursor.execute(consulta_producto, valor_producto)
         producto = cursor.fetchone()
+        cursor.fetchall()
 
         if producto is not None:
             nombre = input(' Coloque un nuevo nombre del Producto: ')
@@ -148,7 +150,8 @@ class Producto:
             resultado_categoria = cursor.fetchone ()
             id_categoria_productos = resultado_categoria
             url_imagen = input('Nueva URL de la Imagen del Producto: ')
-
+            cursor.fetchall()
+            
             # Consulta SQL para actualizar el producto
             consulta_actualizar = "UPDATE productos SET nombre = %s, descripcion = %s, precio = %s, stock = %s, id_categoria_productos = %s, imagen_url = %s WHERE id_productos = %s"
             valores_actualizar = (nombre, descripcion, precio, stock, id_categoria_productos[0], url_imagen, id_productos )
@@ -167,61 +170,41 @@ class Producto:
 
     def borrar_producto(self):
         print("\n╔══════════════════════════════╗")
-    print("║       Borrar Producto          ║")
-    print("╚════════════════════════════════╝")
+        print("║       Borrar Producto          ║")
+        print("╚════════════════════════════════╝")
     
-    # Iniciamos la base de datos
-    conexion = BBDD.BaseDeDatos()
-    cursor = conexion.cursor()
+        # Iniciamos la base de datos
+        conexion = BBDD.BaseDeDatos()
+        cursor = conexion.cursor()
+        
+        cursor.execute("SELECT id_productos, nombre FROM productos ")
+        resultado_productos = cursor.fetchall()
 
-    # Obtener el ID del producto 
-    id_producto = int(input('ID del Producto a Eliminar: '))
+        print("\n╔══════════════════════════════╗")
+        print("║       Lista de Productos       ║")
+        print("╚══════════════════════════════╝")
 
-    # Consulta SQL para eliminar el producto
-    consulta_eliminar = "DELETE FROM productos WHERE id_productos = %s"
-    valor_eliminar = (id_producto,)
-    cursor.execute(consulta_eliminar, valor_eliminar)
-    conexion.confirmar_cambios()
+        if resultado_productos is None or len(resultado_productos) == 0:
+            print("Actualmente no hay productos disponibles.")
+        else:
+            for producto in resultado_productos:
+                id_producto, nombre = producto
+                print(f'{id_producto}- {nombre}')
 
-    # Verificar si se eliminó el producto
-    if cursor.rowcount > 0:
-        print(f'Producto con ID {id_producto} eliminado correctamente.')
-    else:
-        print(f'No se encontró producto con ID {id_producto}.')
+        # Obtener el ID del producto 
+        id_producto = int(input('Elegi el producto a Eliminar: '))
 
-    # Cierra la conexión a la base de datos
-    conexion.cerrar_base()
+        # Consulta SQL para eliminar el producto
+        consulta_eliminar = "DELETE FROM productos WHERE id_productos = %s"
+        valor_eliminar = (id_producto,)
+        cursor.execute(consulta_eliminar, valor_eliminar)
+        conexion.confirmar_cambios()
 
-    def mostrar_menu():
-        print('\n╔════════════════════════════════════════════╗')
-        print('║               Menú de inicio                 ║')
-        print('╠════════════════════════════════════════════╣')
-        print('║ 1. Agregar un nuevo producto              ║')
-        print('║ 2. Listar todos los productos             ║')
-        print('║ 3. Modificar producto actual              ║')
-        print('║ 4. Borrar Producto actual                 ║')
-        print('║ 5. Salir -                                ║')
-        print('╚════════════════════════════════════════════╝')
-        return input('Seleccione una opción: ')
+        # Verificar si se eliminó el producto
+        if cursor.rowcount > 0:
+            print(f'Producto con ID {id_producto} eliminado correctamente.')
+        else:
+            print(f'No se encontró producto con ID {id_producto}.')
 
-# if __name__ == "__main__":
-#     while True:
-#         opcion = mostrar_menu()
-
-#         if opcion == '1':
-#             agregar_producto()
-#         elif opcion == '2':
-#             listar_productos()
-#         elif opcion == '3':
-#             modificar_producto()
-#         elif opcion == '4':
-#             borrar_producto()
-#         elif opcion == '5':
-#             print('\n¡Hasta luego!')
-#             break
-#         else:
-#             print('\nOpción inválida. Por favor, seleccione una opción válida para continuar.')
-
-
-producto = Producto()
-producto.agregar_producto()
+        # Cierra la conexión a la base de datos
+        conexion.cerrar_base()
