@@ -72,8 +72,7 @@ def menu_usuario (username):
                             break
                         print ("Ingrese 0 si quiere volver al menu de usuario")
                 elif opcion == 5:
-                    usuario = Usuario ()
-                    usuario.cargar_datos_envios(username)
+                    print ("Disculpe esta seccion esta en mantenimiento")
                     
                 elif opcion == 6:
                     menu_productos (username)
