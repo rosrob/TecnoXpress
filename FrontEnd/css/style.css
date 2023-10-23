@@ -464,7 +464,7 @@ a:hover {
 
 #resumenPedido{
   background-color: #f4f2f2;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -472,6 +472,7 @@ a:hover {
   
   background-color: #fff;
   box-shadow: -3px 8px 20px -px rgba(168,165,168,1);
+  
   
 }
 /*FIN CHECKOUT*/
