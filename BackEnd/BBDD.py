@@ -3,7 +3,7 @@ import mysql.connector
 from mysql.connector import Error
 
 class BaseDeDatos:
-    
+    #IMPORTANTE: tener en cuenta de reemplazar host, user, password, y port con los valores de sus servidor
     def __init__(self,):
             self.host = "localhost"
             self.user = "root"
