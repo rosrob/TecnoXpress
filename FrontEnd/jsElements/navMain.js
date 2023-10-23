@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function navElement() {
         <div class="btn-group ">
             <a class="btn btn-ligth nav-link btn-sm btn-link" href="registration_form.html"><img class="top-img" src="./media/registro.png" alt="imagen-registro"><span class="top-txt">Registro</span></a>
             <a class="btn btn-ligth nav-link btn-sm btn-link" href="form_ingreso.html"><img class="top-img" src="./media/login.png" alt="imagen-login"><span class="top-txt">Iniciar Sesión</span></a>
-            <a class="boton-menu boton-carrito" href="carrito.html"><i class="bi bi-cart-fill"></i> Carrito <span id="numerito"class="numerito" onChange=("actualizarNumerito()")>0</span></a>
         
         </div>
     </div>
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function navElement() {
                     <a class="nav-link" href="nosotros.html">Nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="productos.html">Nuestros Productos</a>
+                    <a class="nav-link" href="productos.html">Productos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contacto</a>
