@@ -12,6 +12,7 @@ const botonComprar = document.querySelector("#carrito-acciones-comprar");
 const botonCompra = document.querySelector("#carrito-comprar")
 
 
+
 function cargarProductosCarrito(){
    if (productosEnCarrito && productosEnCarrito.length >0){
 
@@ -98,7 +99,8 @@ function comprarCarrito() {
     contenedorCarritoProductos.classList.add("disabled");
     contenedorCarritoAcciones.classList.add("disabled");
     contenedorCarritoComprado.classList.remove("disabled");
-    botonComprar.href="checkout.html"
+    localStorage.setItem("carrito-estado-comprado", true);
+    botonComprar.href="checkout.html";
 
 }
 

@@ -5,6 +5,17 @@ const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
 let botonesAgregar = document.querySelectorAll(".producto-agregar")
 
+
+// cuando carga el archivo va a
+let estadoCarro =localStorage.getItem("carrito-estado-comprado");
+function vaciarCarritoComprado(){
+  if (estadoCarro === true){ 
+    productosEnCarrito.length = 0;
+  }else{
+    console.log(estadoCarro);
+  }
+}
+ 
 function cargarProductos(productosElegidos){
     contenedorDeProductos.innerHTML="";
     productosElegidos.forEach(producto => {
