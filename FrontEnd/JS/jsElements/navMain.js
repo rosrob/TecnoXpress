@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function navElement() {
 
 
         <div class="btn-group ">
-            <a class="btn btn-ligth nav-link btn-sm btn-link" href="registration_form.html"><img class="top-img" src="./media/registro.png" alt="imagen-registro"><span class="top-txt">Registro</span></a>
-            <a class="btn btn-ligth nav-link btn-sm btn-link" href="form_ingreso.html"><img class="top-img" src="./media/login.png" alt="imagen-login"><span class="top-txt">Iniciar Sesión</span></a>
+            <a class="btn btn-ligth nav-link btn-sm btn-link" href="./FrontEnd/registration_form.html"><img class="top-img" src="./FrontEnd/media/registro.png" alt="imagen-registro"><span class="top-txt">Registro</span></a>
+            <a class="btn btn-ligth nav-link btn-sm btn-link" href="./FrontEnd/form_ingreso.html"><img class="top-img" src="./FrontEnd/media/login.png" alt="imagen-login"><span class="top-txt">Iniciar Sesión</span></a>
         
         </div>
     </div>
@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function navElement() {
 <section id="navegacion">
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark menu">
     <div class="container-fluid justify-content-between">
-        <a  class="navbar-brand" href="index.html">
-      <img id="logo" src="./media/logo.png" alt="Logo TecnoXpress"><span class="texto-logo">TecnoXpress</span>
+        <a  class="navbar-brand" href="./index.html">
+      <img id="logo" src="./FrontEnd/media/logo.png" alt="Logo TecnoXpress"><span class="texto-logo">TecnoXpress</span>
     </a> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapsibleNavbar">
@@ -28,20 +28,20 @@ document.addEventListener("DOMContentLoaded", function navElement() {
         <div class="collapse navbar-collapse " id="collapsibleNavbar">
             <ul class="navbar-nav alinear">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Inicio</a>
+                    <a class="nav-link active" href="./index.html">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="nosotros.html">Nosotros</a>
+                    <a class="nav-link" href="./FrontEnd/nosotros.html">Nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="productos.html">Productos</a>
+                    <a class="nav-link" href="./FrontEnd/productos.html">Productos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contacto</a>
+                    <a class="nav-link" href="./FrontEnd/contact.html">Contacto</a>
                 </li>
                 <form class="d-flex buscar-nav">
                     <input class="form-control me-2 btn-sm" type="text" placeholder="Buscar">
-                    <img class="btn btn-secondary btn-sm top-img btn-buscar-nav" src="./media/search.png" alt="Buscar...">
+                    <img class="btn btn-secondary btn-sm top-img btn-buscar-nav" src="./FrontEnd/media/search.png" alt="Buscar...">
                 </form>
 
             </ul>
