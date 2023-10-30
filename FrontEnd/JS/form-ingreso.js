@@ -5,7 +5,7 @@ const contraseña = document.querySelector('input[name="contraseña"]')
 formularioIngreso.addEventListener("submit", (event) => {
   event.preventDefault();
   if (validaCamposIngreso()) {
-    window.location.href = "index.html"; 
+    window.location.href = "./index.html"; 
   }
 });
 
