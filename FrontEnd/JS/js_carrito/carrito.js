@@ -100,7 +100,7 @@ function comprarCarrito() {
     contenedorCarritoAcciones.classList.add("disabled");
     contenedorCarritoComprado.classList.remove("disabled");
     localStorage.setItem("carrito-estado-comprado", true);
-    botonComprar.href="./FrontEnd/checkout.html";
+    botonComprar.href="./checkout.html";
 
 }
 
@@ -111,5 +111,5 @@ function comprarCarrito() {
 //     event.preventDefault();//En el caso del boton, evita que se recargue
 //     productosEnCarrito.length = 0;
 //     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-//     botonComprar.href="checkout.html"
+//     botonComprar.href="./checkout.html"
 // });
