@@ -486,7 +486,8 @@ class Usuario:
         cursor = conexion.cursor()
         
         consulta_usuario = "SELECT id_usuarios FROM usuarios WHERE username = %s"
-        cursor.execute(consulta_usuario, (username,))
+        valor_usuario = (username,)
+        cursor.execute(consulta_usuario, valor_usuario)
         resultado_usuario = cursor.fetchone()
         
         consulta_roles = "SELECT id_roles FROM usuario_roles WHERE id_usuarios = %s"
@@ -502,12 +503,11 @@ class Usuario:
                           
         
         if resultado_rol is not None and resultado_rol[0] == 'administrador':
-            
             return True
         return False
     
     def inicio_usuario (self):
-        self.contador = 0
+        self.contador = 1
         
         # Iniciamos la base de datos
         conexion = BBDD.BaseDeDatos()
@@ -529,8 +529,17 @@ class Usuario:
                 resultado_consulta_usuario = cursor.fetchone()
                 
                 if resultado_consulta_usuario is None:
-                    print("Usuario o contrasena incorrectas. Inténtalo de nuevo.")
-                    self.contador += 1
+                    if self.contador == 3:
+                        print ("Limites de intentos superados")
+                        print (Decoradores.cierre)
+                        # Confirmar los cambios en la base de datos
+                        conexion.confirmar_cambios()
+                        # Cerrar la conexión a la base de datos
+                        conexion.cerrar_base()
+                        sys.exit()
+                    else :
+                        print("Usuario o contrasena incorrectas. Inténtalo de nuevo.")
+                        self.contador += 1
                 
                 elif resultado_consulta_usuario [0] == usuario_registrado and resultado_consulta_usuario [1] == contrasena:
                     print (Decoradores.decorador)
@@ -542,18 +551,6 @@ class Usuario:
                     # Cerrar la conexión a la base de datos
                     conexion.cerrar_base()
                     return usuario_registrado
-                    
-                
-                elif self.contador == 3:
-                    print ("Limites de intentos superados")
-                    print (Decoradores.cierre)
-                    # Confirmar los cambios en la base de datos
-                    conexion.confirmar_cambios()
-
-                    # Cerrar la conexión a la base de datos
-                    conexion.cerrar_base()
-                    sys.exit()
-                    
                     
             elif (resultado_consulta [0] == usuario_registrado):
                 print (Decoradores.decorador)

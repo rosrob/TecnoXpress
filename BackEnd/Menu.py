@@ -26,7 +26,7 @@ def menu_inicial():
                 elif opcion == 0:
                     print(Decoradores.closer)
                     print(Decoradores.decorador)
-                    break
+                    sys.exit ()
             else:
                 print(Decoradores.erroneo)
                 
