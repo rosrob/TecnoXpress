@@ -100,7 +100,7 @@ function comprarCarrito() {
     contenedorCarritoAcciones.classList.add("disabled");
     contenedorCarritoComprado.classList.remove("disabled");
     localStorage.setItem("carrito-estado-comprado", true);
-    botonComprar.href="checkout.html";
+    botonComprar.href="./FrontEnd/checkout.html";
 
 }
 
