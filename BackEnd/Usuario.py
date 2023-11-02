@@ -13,7 +13,7 @@ class Usuario:
         self.__apellido = ""
         self.__dni = ""
         self.__fecha_de_nacimiento = ""
-        self.__domicilio = "s/n"
+        self.__domicilio = ""
         self.__localidad = ""
         self.__provincia = ""
         self.__codigo_postal = ""
@@ -412,6 +412,10 @@ class Usuario:
         valor = (username,)
         cursor.execute(consulta,valor)
         resultado_direccion = cursor.fetchone()
+        
+        if resultado_direccion [0] == "":
+            print ("Primero debe cargar una direccion (Opcion 3).")
+            return
         
         # Consultamos cual es el codigo postal del usuario 
         consulta = "SELECT id_codigo_postal FROM envios WHERE id_usuarios= %s "
