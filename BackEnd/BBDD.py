@@ -7,7 +7,7 @@ class BaseDeDatos:
     def __init__(self,):
             self.host = "localhost"
             self.user = "root"
-            self.password = "Franco4567"
+            self.password = "root"
             self.database = "tecnoxpress"
             self.port = 3306
     
