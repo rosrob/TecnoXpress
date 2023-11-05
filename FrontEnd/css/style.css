@@ -107,7 +107,6 @@
 }
 
 .nosotros_section .container .card {
-  background-color: var(--fifty-color);
   border: unset;
   width: 90%;
   margin: 10px auto;
@@ -459,21 +458,17 @@ a:hover {
 
 /*FIN PIE DE PAGINA*/
 
-
 /*CHECKOUT*/
 
-#resumenPedido{
+#resumenPedido {
   background-color: #f4f2f2;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.col-md-8{
-  
+.col-md-8 {
   background-color: #fff;
-  box-shadow: -3px 8px 20px -px rgba(168,165,168,1);
-  
-  
+  box-shadow: -3px 8px 20px -px rgba(168, 165, 168, 1);
 }
 /*FIN CHECKOUT*/
 
