@@ -51,43 +51,49 @@
 <main class="cuerpo">
   <div class="container_registration">
     <form class="formulario-registro" id="formulario-registro" >
-        <div class="columna-izquierda">
-          <p>
-            <label class="dato" for="nombre">Nombre</label>
-            <input class="celda" type="text" name="nombre" id="nombre" minlength="4" maxlength="20" pattern="[A-Za-z]+" required>
-          </p>
-          <p>
-            <label class="dato" for="apellido">Apellido</label>
-            <input class="celda" type="text" name="apellido" id="apellido" minlength="4" maxlength="20" pattern="[A-Za-z]+" required>
-          </p>
-          <p>
-            <label class="dato" for="DNI">DNI</label>
-            <input class="celda" type="number" name="DNI" id="DNI" minlength="8" maxlength="8" pattern="[0-9]{8}" required>
-          </p>
+      <div class="columna-izquierda">
         <p>
-          <label class="dato" for="Celular">Celular</label>
-          <input class="celda" type="number" name="celular" id="Celular" minlength="10" maxlength="10" pattern="[0-9]{10}" required>
+            <label class="dato" for="nombre">Nombre</label>
+            <input class="celda" type="text" name="nombre" id="nombre" minlength="4" maxlength="20" pattern="[A-Za-z]+" onchange="validaCamposRegistro()" required>
+            <span class="error" id="nombreError">Por favor, ingrese un nombre válido.</span>
         </p>
-       
-      </div>
+        <p>
+            <label class="dato" for="apellido">Apellido</label>
+            <input class="celda" type="text" name="apellido" id="apellido" minlength="4" maxlength="20" pattern="[A-Za-z]+" onchange="validaCamposRegistro()" required>
+            <span class="error" id="apellidoError">Por favor, ingrese un apellido válido.</span>
+        </p>
+        <p>
+            <label class="dato" for="DNI">DNI</label>
+            <input class="celda" type="number" name="DNI" id="DNI" minlength="8" maxlength="8" pattern="[0-9]{8}" onchange="validaCamposRegistro()" required>
+            <span class="error" id="dniError">Por favor, ingrese un DNI válido de 8 dígitos.</span>
+        </p>
+        <p>
+            <label class="dato" for="Celular">Celular</label>
+            <input class="celda" type="number" name="celular" id="Celular" minlength="10" maxlength="10" pattern="[0-9]{10}" onchange="validaCamposRegistro()" required>
+            <span class="error" id="celularError">Por favor, ingrese un número de celular válido de 10 dígitos.</span>
+        </p>
+    </div>
       <div class="columna-derecha">
-        
         <p>
           <label class="dato" for="FechaNacimiento">Fecha de Nacimiento</label>
-          <input class="celda" type="date" name="fecha_de_nacimiento" min="1900-01-01" max="2008-12-31" id="FechaNacimiento" required>
-        </p>
-        <p>
+          <input class="celda" type="date" name="fecha_de_nacimiento" min="1900-01-01" max="2008-12-31" id="FechaNacimiento" onchange="validaCamposRegistro()" required>
+          <span class="error" id="fechaNacimientoError">Por favor, seleccione una Fecha de Nacimiento.</span>
+      </p>
+      <p>
           <label class="dato" for="Email">Email</label>
-          <input class="celda" type="email" name="email" id="Email" required>
-        </p>
-        <p>
+          <input class="celda" type="email" name="email" id="Email" onchange="validaCamposRegistro()" required>
+          <span class="error" id="emailError">Por favor, ingrese un correo electrónico válido.</span>
+      </p>
+      <p>
           <label class="dato" for="Contraseña">Contraseña</label>
-          <input class="celda" type="password" name="contraseña" id="Contraseña" minlength="4" maxlength="15" required>
-        </p>
-        <p>
+          <input class="celda" type="password" name="contraseña" id="Contraseña" minlength="4" maxlength="15" onchange="validaCamposRegistro()" required>
+          <span class="error" id="contraseñaError">La contraseña debe tener al menos 4 caracteres.</span>
+      </p>
+      <p>
           <label class="dato" for="ConfirmarContraseña">Confirmar contraseña</label>
           <input class="celda" type="password" name="confirmar_contraseña" id="ConfirmarContraseña" required>
-        </p>
+          <span class="error" id="confirmarContraseñaError">Las contraseñas no coinciden.</span>
+      </p>
      </div>
      <p class="boton-container"> 
       <button class="boton" type="submit" onclick="validaCamposRegistro()">
